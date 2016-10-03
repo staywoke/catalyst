@@ -1,0 +1,2 @@
+class LegacySurveyResponse < ApplicationRecord
+end
