@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
 
   def inflate_from_legacy_survey_response(legacy_survey_response)
     parts = legacy_survey_response.name.split
