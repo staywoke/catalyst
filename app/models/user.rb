@@ -1,5 +1,10 @@
 class User < ApplicationRecord
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true
+  validates :email_downcase, uniqueness: true
+
+  before_save do |record|
+    self.email_downcased = email.try(:downcase).try(:strip)
+  end
 
   def inflate_from_legacy_survey_response(legacy_survey_response)
     parts = legacy_survey_response.name.split
