@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
     legacy_survey_response = LegacySurveyResponse.find_by_token(params[:token])
 
     return unless legacy_survey_response
-    return if User.where(legacy_survey_response_id: legacy_survey_response.id)
+    return if User.where(legacy_survey_response_id: legacy_survey_response.id).any?
 
     @legacy_survey_response = legacy_survey_response
   end

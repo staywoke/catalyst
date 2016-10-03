@@ -2,7 +2,7 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   def inflate_from_legacy_survey_response(legacy_survey_response)
-    parts = legacy_survey_response.split
+    parts = legacy_survey_response.name.split
 
     self.first_name = parts[0..(parts.length - 2)]
     self.last_name = parts[-1] if parts.count > 1
