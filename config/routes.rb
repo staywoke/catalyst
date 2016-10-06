@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#show', as: :dashboard
 
   namespace :admin do
+    get '/', to: 'base#index', as: :admin
+
     get 'projects', to: 'projects#index', as: :projects
     get 'project/:key', to: 'projects#show', as: :project
     get 'project/:key/edit', to: 'projects#edit', as: :edit_project
@@ -24,5 +26,6 @@ Rails.application.routes.draw do
 
     resources 'cities', except: :show
     resources 'counties', except: :show
+    resources 'domains'
   end
 end
