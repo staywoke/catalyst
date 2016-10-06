@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006134541) do
+ActiveRecord::Schema.define(version: 20161006135502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 20161006134541) do
     t.index ["domain_id"], name: "index_project_domains_on_domain_id", using: :btree
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string   "project_key"
+    t.integer  "city_id"
+    t.integer  "county_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["city_id"], name: "index_tasks_on_city_id", using: :btree
+    t.index ["county_id"], name: "index_tasks_on_county_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -93,4 +103,6 @@ ActiveRecord::Schema.define(version: 20161006134541) do
   add_foreign_key "domain_memberships", "cities"
   add_foreign_key "domain_memberships", "counties"
   add_foreign_key "domain_memberships", "domains"
+  add_foreign_key "tasks", "cities"
+  add_foreign_key "tasks", "counties"
 end

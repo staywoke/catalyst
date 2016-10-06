@@ -11,6 +11,8 @@ class Domain < ApplicationRecord
     membership = domain_memberships.new
     membership.send("#{resource.class.name.downcase}=", resource)
     membership.save
+
+    CalibrateTasksJob.perform_later
   end
 
   def remove(resource)
@@ -21,11 +23,15 @@ class Domain < ApplicationRecord
     )
 
     membership.destroy
+
+    CalibrateTasksJob.perform_later
   end
 
   def set(city_ids, county_ids)
     set_cities(city_ids)
     set_counties(county_ids)
+
+    CalibrateTasksJob.perform_later
   end
 
   private
