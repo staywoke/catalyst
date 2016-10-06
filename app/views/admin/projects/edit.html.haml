@@ -1,4 +1,4 @@
-%h1 Edit Project
+%h1 Update Project
 
 name: #{@project::NAME}
 <br />
@@ -8,4 +8,4 @@ key: #{@project::KEY}
   %h2 Domains
   = form.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids
   <br />
-  = form.button :submit, class: 'btn btn-primary'
+  = form.submit 'Update Project', class: 'btn btn-primary'
