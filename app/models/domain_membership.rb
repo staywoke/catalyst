@@ -1,5 +1,6 @@
 class DomainMembership < ApplicationRecord
   belongs_to :domain
+
   belongs_to :city, optional: true
   belongs_to :county, optional: true
 
