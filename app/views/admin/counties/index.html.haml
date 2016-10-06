@@ -1,0 +1,22 @@
+.btn.btn-primary= link_to 'New County', new_admin_county_path
+
+%table
+  %thead
+    %tr
+      %td Name
+      %td State
+      %td Latitude
+      %td Longitude
+      %td
+      %td
+  %tbody
+    - @counties.each do |county|
+      %tr
+        %td= county.name
+        %td= county.state
+        %td= county.latitude
+        %td= county.longitude
+        %td
+          .btn= link_to 'Edit', edit_admin_county_path(county)
+        %td
+          .btn.btn-danger= link_to 'Delete', admin_county_path(county), method: :delete, data: {confirm: 'Are you sure?'}

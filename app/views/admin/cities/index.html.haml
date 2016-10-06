@@ -1,0 +1,22 @@
+.btn.btn-primary= link_to 'New City', new_admin_city_path
+
+%table
+  %thead
+    %tr
+      %td Name
+      %td State
+      %td Latitude
+      %td Longitude
+      %td
+      %td
+  %tbody
+    - @cities.each do |city|
+      %tr
+        %td= city.name
+        %td= city.state
+        %td= city.latitude
+        %td= city.longitude
+        %td
+          .btn= link_to 'Edit', edit_admin_city_path(city)
+        %td
+          .btn.btn-danger= link_to 'Delete', admin_city_path(city), method: :delete, data: {confirm: 'Are you sure?'}

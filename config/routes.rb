@@ -21,5 +21,8 @@ Rails.application.routes.draw do
     get 'project/:key', to: 'projects#show', as: :project
     get 'project/:key/edit', to: 'projects#edit', as: :edit_project
     put 'project/:key', to: 'projects#update'
+
+    resources 'cities', except: :show
+    resources 'counties', except: :show
   end
 end

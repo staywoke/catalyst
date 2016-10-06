@@ -1,0 +1,8 @@
+%h1 Edit City
+
+= simple_form_for(@city, url: admin_city_path(@city), method: :put, html: {class: 'form-horizontal'}) do |form|
+  = form.input :name
+  = form.input :state
+  = form.input :latitude
+  = form.input :longitude
+  = form.button :submit
