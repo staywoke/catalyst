@@ -9,7 +9,7 @@ class DomainMembership < ApplicationRecord
 
   def only_one_model
     if city && county
-      error.add(:base, 'only one model can specified per membership')
+      errors.add(:base, 'only one model can specified per membership')
     end
   end
 end
