@@ -6,7 +6,7 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def update
-    @project.domain_ids = params[:project][:domains].select { |x| x.present? }
+    @project.domain_ids = params[:project][:domains].select { |x| x.present? }.map { |x| x.to_i }
     redirect_to admin_project_path(key: params[:key])
   end
 
