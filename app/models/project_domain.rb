@@ -1,0 +1,2 @@
+class ProjectDomain < ApplicationRecord
+end

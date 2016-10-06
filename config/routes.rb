@@ -15,4 +15,11 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create', as: :users
 
   get 'dashboard', to: 'dashboard#show', as: :dashboard
+
+  namespace :admin do
+    get 'projects', to: 'projects#index', as: :projects
+    get 'project/:key', to: 'projects#show', as: :project
+    get 'project/:key/edit', to: 'projects#edit', as: :edit_project
+    put 'project/:key', to: 'projects#update'
+  end
 end
