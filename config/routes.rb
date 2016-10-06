@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#show', as: :dashboard
 
   namespace :admin do
-    get '/', to: 'base#index', as: :admin
-
     get 'projects', to: 'projects#index', as: :projects
     get 'project/:key/edit', to: 'projects#edit', as: :edit_project
     put 'project/:key', to: 'projects#update', as: :project
