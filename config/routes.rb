@@ -20,9 +20,8 @@ Rails.application.routes.draw do
     get '/', to: 'base#index', as: :admin
 
     get 'projects', to: 'projects#index', as: :projects
-    get 'project/:key', to: 'projects#show', as: :project
     get 'project/:key/edit', to: 'projects#edit', as: :edit_project
-    put 'project/:key', to: 'projects#update'
+    put 'project/:key', to: 'projects#update', as: :project
 
     resources 'cities', except: :show
     resources 'counties', except: :show

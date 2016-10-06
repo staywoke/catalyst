@@ -1,8 +1,11 @@
+%h1 Edit Project
+
 name: #{@project::NAME}
 <br />
 key: #{@project::KEY}
 
-= form_for :project, url: admin_project_path(@project::KEY), method: :put do |form|
+= form_for :project, url: admin_project_path(key: @project::KEY), method: :put do |form|
+  %h2 Cities
   = form.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids
   <br />
   = form.button :submit

@@ -1,3 +1,13 @@
-- @projects.each do |project|
-  = link_to project::NAME, admin_project_path(key: project::KEY)
-  <br />
+%table
+  %thead
+    %tr
+      %td Name
+      %td Key
+      %td
+  %tbody
+    - @projects.each do |project|
+      %tr
+        %td= project::NAME
+        %td= project::KEY
+        %td
+          .btn= link_to 'Edit', admin_edit_project_path(key: project::KEY)

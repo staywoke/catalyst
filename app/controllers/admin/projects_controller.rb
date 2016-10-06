@@ -1,5 +1,5 @@
 class Admin::ProjectsController < Admin::BaseController
-  before_filter :set_project, only: [:show, :edit, :update]
+  before_filter :set_project, only: [:edit, :update]
 
   def index
     @projects = Projects::Base.subclasses
@@ -7,7 +7,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def update
     @project.domain_ids = params[:project][:domains].select { |x| x.present? }.map { |x| x.to_i }
-    redirect_to admin_project_path(key: params[:key])
+    redirect_to admin_projects_path
   end
 
   private
