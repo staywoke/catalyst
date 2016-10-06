@@ -5,7 +5,7 @@ name: #{@project::NAME}
 key: #{@project::KEY}
 
 = form_for :project, url: admin_project_path(key: @project::KEY), method: :put do |form|
-  %h2 Cities
+  %h2 Domains
   = form.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids
   <br />
   = form.button :submit, class: 'btn btn-primary'
