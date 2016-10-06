@@ -1,0 +1,9 @@
+%h1 Edit Domain
+
+= simple_form_for(@domain, url: admin_domain_path(@domain), method: :put, html: {class: 'form-horizontal'}) do |form|
+  = form.input :name
+  %h2 Cities
+  = form.collection_check_boxes :cities, City.all, :id, :name, checked: @domain.cities.pluck(:id)
+  %h2 Counties
+  = form.collection_check_boxes :counties, County.all, :id, :name, checked: @domain.counties.pluck(:id)
+  = form.button :submit

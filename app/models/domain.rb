@@ -23,6 +23,11 @@ class Domain < ApplicationRecord
     membership.destroy
   end
 
+  def set(city_ids, county_ids)
+    set_cities(city_ids)
+    set_counties(county_ids)
+  end
+
   private
 
   def include?(resource)
@@ -36,5 +41,33 @@ class Domain < ApplicationRecord
   def valid_membership?(resource)
     column_name = "#{resource.class.name.downcase}_id"
     raise unless DomainMembership.column_names.include?(column_name)
+  end
+
+  def set_cities(city_ids)
+    to_be_removed = self.cities.pluck(:id) - city_ids
+    to_be_added = city_ids - self.cities.pluck(:id)
+
+    binding.pry
+
+    to_be_removed.each do |city_id|
+      domain_memberships.where(city_id: city_id).destroy_all
+    end
+
+    to_be_added.each do |city_id|
+      domain_memberships.create(city_id: city_id)
+    end
+  end
+
+  def set_counties(county_ids)
+    to_be_removed = self.counties.pluck(:id) - county_ids
+    to_be_added = county_ids - self.counties.pluck(:id)
+
+    to_be_removed.each do |county_id|
+      domain_memberships.where(county_id: county_id).destroy_all
+    end
+
+    to_be_added.each do |county_id|
+      domain_memberships.create(county_id: county_id)
+    end
   end
 end

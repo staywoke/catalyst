@@ -1,7 +1,7 @@
 class DomainMembership < ApplicationRecord
   belongs_to :domain
-  belongs_to :city
-  belongs_to :county
+  belongs_to :city, optional: true
+  belongs_to :county, optional: true
 
   validate :only_one_model
 

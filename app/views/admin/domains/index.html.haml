@@ -1,0 +1,16 @@
+.btn.btn-primary= link_to 'New Domain', new_admin_domain_path
+
+%table
+  %thead
+    %tr
+      %td Name
+      %td
+      %td
+  %tbody
+    - @domains.each do |domain|
+      %tr
+        %td= domain.name
+        %td
+          .btn= link_to 'Edit', edit_admin_domain_path(domain)
+        %td
+          .btn.btn-danger= link_to 'Delete', admin_domain_path(domain), method: :delete, data: {confirm: 'Are you sure?'}

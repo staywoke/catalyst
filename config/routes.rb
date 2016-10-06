@@ -26,6 +26,6 @@ Rails.application.routes.draw do
 
     resources 'cities', except: :show
     resources 'counties', except: :show
-    resources 'domains'
+    resources 'domains', except: :show
   end
 end
