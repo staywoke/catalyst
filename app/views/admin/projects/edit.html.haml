@@ -2,7 +2,7 @@ name: #{@project::NAME}
 <br />
 key: #{@project::KEY}
 
-= form_for :project, url: admin_project_path(@project::KEY), method: :put do |f|
-  = f.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids
+= form_for :project, url: admin_project_path(@project::KEY), method: :put do |form|
+  = form.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids
   <br />
-  = f.button :submit
+  = form.button :submit
