@@ -8,4 +8,4 @@ key: #{@project::KEY}
   %h2 Cities
   = form.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids
   <br />
-  = form.button :submit
+  = form.button :submit, class: 'btn btn-primary'

@@ -6,4 +6,4 @@
   = form.collection_check_boxes :cities, City.all, :id, :name, checked: @domain.cities.pluck(:id)
   %h2 Counties
   = form.collection_check_boxes :counties, County.all, :id, :name, checked: @domain.counties.pluck(:id)
-  = form.button :submit
+  = form.button :submit, class: 'btn btn-primary'
