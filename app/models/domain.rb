@@ -47,8 +47,6 @@ class Domain < ApplicationRecord
     to_be_removed = self.cities.pluck(:id) - city_ids
     to_be_added = city_ids - self.cities.pluck(:id)
 
-    binding.pry
-
     to_be_removed.each do |city_id|
       domain_memberships.where(city_id: city_id).destroy_all
     end
