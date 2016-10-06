@@ -1,1 +1,16 @@
 %h1 Dashboard
+
+%table
+  %thead
+    %tr
+      %td Name
+      %td Type
+      %td Locality
+      %td State
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= task.project::NAME
+        %td= task.type
+        %td= task.locality.name
+        %td= task.locality.state

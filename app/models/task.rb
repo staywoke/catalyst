@@ -4,6 +4,18 @@ class Task < ApplicationRecord
 
   validate :only_one_model
 
+  def project
+    Projects::Base.find_by_key(project_key)
+  end
+
+  def locality
+    city || county
+  end
+
+  def type
+    locality.class.name.downcase
+  end
+
   private
 
   def only_one_model
