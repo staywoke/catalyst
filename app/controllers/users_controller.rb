@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(:user, @user)
-      redirect_to dashboard_path
+      redirect_to actions_path
     else
       render 'welcome/new'
     end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       @user.password = new_password if new_password.present?
       if @user.save && sign_in(@user, :bypass => true)
         flash[:notice] = 'Your account has been successfully updated.'
-        redirect_to dashboard_path
+        redirect_to actions_path
       else
         render :edit
       end

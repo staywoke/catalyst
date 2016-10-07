@@ -1,7 +1,7 @@
-class DashboardController < ApplicationController
+class ActionsController < ApplicationController
   before_action :authenticate_user!
 
-  def show
+  def index
     @tasks = Task.all
   end
 end

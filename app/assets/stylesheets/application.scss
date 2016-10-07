@@ -16,10 +16,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "variables";
+
+@import "fonts";
+
 body {
   padding: 70px 50px 50px 50px;
 }
 
-.navbar-brand img {
-  height: 18px;
-}
+@import "navbar";
