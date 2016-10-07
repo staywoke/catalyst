@@ -1,22 +1,27 @@
-.btn.btn-primary= link_to 'New City', new_admin_city_path
+.col-xs-12
+  %h1 Cities
 
-%table
-  %thead
-    %tr
-      %td Name
-      %td State
-      %td Latitude
-      %td Longitude
-      %td
-      %td
-  %tbody
-    - @cities.each do |city|
+.col-sm-6.margin-bottom-4
+  .btn.btn-primary= link_to 'New City', new_admin_city_path
+
+.col-xs-12
+  %table.table.table-hover
+    %thead
       %tr
-        %td= city.name
-        %td= city.state
-        %td= city.latitude
-        %td= city.longitude
-        %td
-          .btn= link_to 'Edit', edit_admin_city_path(city)
-        %td
-          .btn.btn-danger= link_to 'Delete', admin_city_path(city), method: :delete, data: {confirm: 'Are you sure?'}
+        %th Name
+        %th State
+        %th Latitude
+        %th Longitude
+        %th
+        %th
+    %tbody
+      - @cities.each do |city|
+        %tr
+          %td= city.name
+          %td= city.state
+          %td= city.latitude
+          %td= city.longitude
+          %td
+            .btn.btn-sm.btn-default= link_to 'Edit', edit_admin_city_path(city)
+          %td
+            .btn.btn-sm.btn-danger= link_to 'Delete', admin_city_path(city), method: :delete, data: {confirm: 'Are you sure?'}

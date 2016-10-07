@@ -1,16 +1,21 @@
-.btn.btn-primary= link_to 'New Domain', new_admin_domain_path
+.col-xs-12
+  %h1 Domains
 
-%table
-  %thead
-    %tr
-      %td Name
-      %td
-      %td
-  %tbody
-    - @domains.each do |domain|
+.col-sm-6.margin-bottom-4
+  .btn.btn-primary= link_to 'New Domain', new_admin_domain_path
+
+.col-xs-12
+  %table.table.table-hover
+    %thead
       %tr
-        %td= domain.name
-        %td
-          .btn= link_to 'Edit', edit_admin_domain_path(domain)
-        %td
-          .btn.btn-danger= link_to 'Delete', admin_domain_path(domain), method: :delete, data: {confirm: 'Are you sure?'}
+        %th Name
+        %th
+        %th
+    %tbody
+      - @domains.each do |domain|
+        %tr
+          %td= domain.name
+          %td
+            .btn.btn-default.btn-sm= link_to 'Edit', edit_admin_domain_path(domain)
+          %td
+            .btn.btn-sm.btn-danger= link_to 'Delete', admin_domain_path(domain), method: :delete, data: {confirm: 'Are you sure?'}

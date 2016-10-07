@@ -1,0 +1,15 @@
+@import "variables";
+
+form {
+  label {
+    font-family: 'proxima_nova_semibold';
+    font-size: 16px;
+    color: $black;
+  }
+
+  input {
+    font-family: 'proxima_nova_regular';
+    font-size: 16px;
+    color: $black;
+  }
+}

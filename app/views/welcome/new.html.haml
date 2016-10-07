@@ -1,8 +1,8 @@
-= simple_form_for(@user, html: { class: 'form-horizontal' }) do |form|
+= simple_form_for(@user) do |form|
   = form.hidden_field :legacy_survey_response_id
   = form.input :first_name
   = form.input :last_name
   = form.input :email
   = form.input :zip_code
   = form.input :password
-  = form.button :submit, class: 'btn btn-primary'
+  = form.button :submit, class: 'btn-primary'

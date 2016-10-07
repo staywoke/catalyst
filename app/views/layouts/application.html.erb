@@ -8,12 +8,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= favicon_link_tag 'favicon.png' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
 
   <body>
-    <%= render partial: 'navbar' %>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container-fluid">
+      <%= render partial: 'navbar' %>
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>

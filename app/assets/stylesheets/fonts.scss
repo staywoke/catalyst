@@ -5,3 +5,19 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'proxima_nova_extrabold';
+  src: url('/fonts/proximanova-xbold-webfont.woff2') format('woff2'),
+       url('/fonts/proximanova-xbold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proxima_nova_regular';
+  src: url('/fonts/proximanova-reg-webfont.woff2') format('woff2'),
+       url('/fonts/proximanova-reg-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

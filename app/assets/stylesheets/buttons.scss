@@ -1,0 +1,48 @@
+@import "variables";
+
+.btn {
+  border: none;
+  border-radius: 0;
+  padding: 13px 64px 16px 64px;
+
+  font-family: 'proxima_nova_extrabold';
+  font-size: 16px;
+  color: $white;
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  &.btn-sm {
+    padding: 6px 30px 7px 30px;
+  }
+}
+
+.btn-default {
+  background-color: $gray;
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.btn-primary {
+  background-color: $yellow;
+
+  &:hover {
+    background-color: $yellow;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.btn-danger {
+  a {
+    color: $white;
+  }
+}
