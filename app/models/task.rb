@@ -4,6 +4,10 @@ class Task < ApplicationRecord
 
   validate :only_one_model
 
+  before_save do |record|
+    record.token = SecureRandom.uuid unless token.present?
+  end
+
   def project
     Projects::Base.find_by_key(project_key)
   end
@@ -14,6 +18,27 @@ class Task < ApplicationRecord
 
   def type
     locality.class.name.downcase
+  end
+
+  def title
+    project::NAME
+  end
+
+  def subtitle
+    case type
+    when 'city'
+      "City of #{locality.name}, #{locality.state}"
+    when 'county'
+      "#{locality.name} County, #{locality.state}"
+    end
+  end
+
+  def blurb
+    project::BLURB
+  end
+
+  def description
+    project::DESCRIPTION
   end
 
   private

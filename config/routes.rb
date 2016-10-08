@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'actions#index'
+  root to: 'tasks#index'
 
   devise_for :users, controller: {sessions: 'users/sessions'}
 
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   put 'account', to: 'users#update'
   post 'users', to: 'users#create', as: :users
 
-  get 'actions', to: 'actions#index', as: :actions
+  get 'actions', to: 'tasks#index', as: :tasks
+  get 'task/:key', to: 'tasks#show', as: :task
 
   namespace :admin do
     get 'projects', to: 'projects#index', as: :projects

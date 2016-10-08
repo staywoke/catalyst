@@ -1,0 +1,51 @@
+body {
+  padding: 70px 50px 50px 50px;
+}
+
+h1 {
+  font-size: 24px;
+  font-family: 'Proxima Nova Extra Bold';
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  padding-bottom: 40px;
+  border-bottom: 7px solid $black;
+  margin-bottom: 40px;
+  margin-top: 35px;
+}
+
+h2 {
+  font-family: 'Proxima Nova Semibold';
+  font-size: 24px;
+  line-height: 32px;
+
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-family: 'Proxima Nova Semibold';
+  font-size: 20px;
+  line-height: 32px;
+
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+p {
+  font-size: 14px;
+  font-family: 'Proxima Nova Regular';
+  letter-spacing: 0.39px;
+  line-height: 21px;
+}
+
+.hr {
+  width: 100%;
+  height: 0;
+  border-bottom: 1px solid #bbb;
+}
+
+#notice, #alert {
+  display: none;
+}

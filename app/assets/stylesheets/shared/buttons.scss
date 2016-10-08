@@ -5,7 +5,7 @@
   border-radius: 0;
   padding: 13px 64px 16px 64px;
 
-  font-family: 'proxima_nova_extrabold';
+  font-family: 'Proxima Nova Extra Bold';
   font-size: 16px;
   color: $white;
   letter-spacing: 1.5px;
@@ -30,11 +30,7 @@
 }
 
 .btn-primary {
-  background-color: $yellow;
-
-  &:hover {
-    background-color: $yellow;
-  }
+  @include button-variant(white, $yellow, transparent);
 
   a {
     color: $white;
@@ -44,5 +40,23 @@
 .btn-danger {
   a {
     color: $white;
+  }
+}
+
+.btn-arrow {
+  position: relative;
+
+  &::after {
+    content: '\e092';
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

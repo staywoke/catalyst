@@ -1,0 +1,6 @@
+.row
+  %h1 Actions
+
+.row.tasks
+  - @tasks.each do |task|
+    = render partial: 'task', locals: {task: task}

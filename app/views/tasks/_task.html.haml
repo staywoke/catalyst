@@ -1,0 +1,14 @@
+.task
+  .row.title
+    .col-sm-8
+      %h2= task.title
+      %h3= task.subtitle
+    .col-sm-4
+      .btn.btn-primary.btn-arrow.btn-block
+        = link_to 'I will do this', task_path(key: task.token)
+
+  .row.description
+    .col-sm-12
+      = render partial: task.blurb, locals: {task: task}
+
+  .hr
