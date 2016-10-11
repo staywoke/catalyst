@@ -1,4 +1,6 @@
 class Projects::Base
+  MINIMUM_NUMBER_OF_ANSWERS_REQUIRED = 1
+
   def self.find_by_key(key)
     subclasses.find { |klass| klass::KEY == key }
   end
