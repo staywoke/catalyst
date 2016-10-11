@@ -12,7 +12,7 @@ class Task < ApplicationRecord
   end
 
   def self.closest_to(user, limit: 2)
-    Task.by_distance(origin: user.zip_code)
+    Task.by_distance(origin: [user.latitude, user.longitude])
       .references(:cities)
       .includes(:city)
       .limit(limit)
