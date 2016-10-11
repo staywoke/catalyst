@@ -37,3 +37,5 @@ class Projects::Base
     ::CalibrateTasksJob.perform_later
   end
 end
+
+require_dependency "projects/use_of_force_policy"
