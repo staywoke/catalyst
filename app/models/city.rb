@@ -4,7 +4,7 @@ class City < ApplicationRecord
 
   after_destroy { CalibrateTasksJob.perform_later }
 
-  before_validation do |record|
+  before_validation do
     if name_changed? || state_changed?
       location = Geokit::Geocoders::MultiGeocoder.geocode("#{name}, #{state}")
 
