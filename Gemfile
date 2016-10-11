@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'factory_girl_rails'
+  gem 'awesome_print'
 end
 
 group :development do
