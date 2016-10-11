@@ -14,8 +14,7 @@ class Admin::DomainsController < Admin::BaseController
 
     if @domain.save
       @domain.set(
-        params[:domain][:cities].select { |x| x.present? }.map { |x| x.to_i },
-        params[:domain][:counties].select { |x| x.present? }.map { |x| x.to_i },
+        params[:domain][:cities].select { |x| x.present? }.map { |x| x.to_i }
       )
 
       flash[:notice] = 'New domain successfully created'
@@ -30,8 +29,7 @@ class Admin::DomainsController < Admin::BaseController
 
     if @domain.save
       @domain.set(
-        params[:domain][:cities].select { |x| x.present? }.map { |x| x.to_i },
-        params[:domain][:counties].select { |x| x.present? }.map { |x| x.to_i },
+        params[:domain][:cities].select { |x| x.present? }.map { |x| x.to_i }
       )
 
       flash[:notice] = 'Domain successfully updated'

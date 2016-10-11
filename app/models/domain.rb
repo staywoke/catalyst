@@ -1,7 +1,6 @@
 class Domain < ApplicationRecord
   has_many :domain_memberships
   has_many :cities, through: :domain_memberships
-  has_many :counties, through: :domain_memberships
 
   validates :name, presence: true, uniqueness: true
 
@@ -27,10 +26,8 @@ class Domain < ApplicationRecord
     CalibrateTasksJob.perform_later
   end
 
-  def set(city_ids, county_ids)
+  def set(city_ids)
     set_cities(city_ids)
-    set_counties(county_ids)
-
     CalibrateTasksJob.perform_later
   end
 
@@ -59,19 +56,6 @@ class Domain < ApplicationRecord
 
     to_be_added.each do |city_id|
       domain_memberships.create(city_id: city_id)
-    end
-  end
-
-  def set_counties(county_ids)
-    to_be_removed = self.counties.pluck(:id) - county_ids
-    to_be_added = county_ids - self.counties.pluck(:id)
-
-    to_be_removed.each do |county_id|
-      domain_memberships.where(county_id: county_id).destroy_all
-    end
-
-    to_be_added.each do |county_id|
-      domain_memberships.create(county_id: county_id)
     end
   end
 end

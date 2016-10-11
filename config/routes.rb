@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     put 'project/:key', to: 'projects#update', as: :project
 
     resources 'cities', except: :show
-    resources 'counties', except: :show
     resources 'domains', except: :show
   end
 end

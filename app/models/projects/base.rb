@@ -10,13 +10,6 @@ class Projects::Base
       pluck(:city_id).uniq
   end
 
-  def self.county_ids
-    ::DomainMembership.
-      where(domain: self.domains).
-      where('county_id IS NOT NULL').
-      pluck(:county_id).uniq
-  end
-
   def self.domains
     ::Domain.where(id: self.domain_ids)
   end

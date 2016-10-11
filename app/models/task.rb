@@ -1,23 +1,20 @@
 class Task < ApplicationRecord
-  belongs_to :city, optional: true
-  belongs_to :county, optional: true
+  belongs_to :city
 
-  validate :only_one_model
 
   before_save do |record|
     record.token = SecureRandom.uuid unless token.present?
   end
 
+  def self.closest_to(user, limit: 2)
+    Task.by_distance(origin: user.zip_code)
+      .references(:cities)
+      .includes(:city)
+      .limit(limit)
+  end
+
   def project
     Projects::Base.find_by_key(project_key)
-  end
-
-  def locality
-    city || county
-  end
-
-  def type
-    locality.class.name.downcase
   end
 
   def title
@@ -25,12 +22,7 @@ class Task < ApplicationRecord
   end
 
   def subtitle
-    case type
-    when 'city'
-      "City of #{locality.name}, #{locality.state}"
-    when 'county'
-      "#{locality.name} County, #{locality.state}"
-    end
+    "#{city.name}, #{city.state}"
   end
 
   def blurb
@@ -39,13 +31,5 @@ class Task < ApplicationRecord
 
   def description
     project::DESCRIPTION
-  end
-
-  private
-
-  def only_one_model
-    if city && county
-      errors.add(:base, 'only one model can specified per task')
-    end
   end
 end

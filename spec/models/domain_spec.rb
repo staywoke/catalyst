@@ -4,7 +4,6 @@ RSpec.describe Domain, type: :model do
   subject { FactoryGirl.create(:domain) }
 
   let(:city) { FactoryGirl.create(:city) }
-  let(:county) { FactoryGirl.create(:county) }
 
   describe '#add' do
     context "when the resource hasn't been added yet" do

@@ -5,9 +5,5 @@ FactoryGirl.define do
     factory :cities do
       name 'Cities'
     end
-
-    factory :counties do
-      name 'Counties'
-    end
   end
 end
