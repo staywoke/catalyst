@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
     @user = User.new
 
     if @legacy_survey_response
+      @legacy_survey_response.statistics.viewed!
       @user.inflate_from_legacy_survey_response(@legacy_survey_response)
     end
   end

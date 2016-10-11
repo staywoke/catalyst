@@ -13,6 +13,13 @@ class User < ApplicationRecord
     end
   end
 
+  before_create do
+    if legacy_survey_response_id.present?
+      object = LegacySurveyResponse.find(legacy_survey_response_id)
+      object.statistics.redeemed!
+    end
+  end
+
   def inflate_from_legacy_survey_response(legacy_survey_response)
     parts = legacy_survey_response.name.split
 

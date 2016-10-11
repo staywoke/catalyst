@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011030629) do
+ActiveRecord::Schema.define(version: 20161011230134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20161011030629) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "legacy_survey_response_statistics", force: :cascade do |t|
+    t.integer  "legacy_survey_response_id"
+    t.integer  "view_count",                default: 0, null: false
+    t.datetime "redeemed_at"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.index ["legacy_survey_response_id"], name: "index_lsrs_on_legacy_survey_response_id", using: :btree
   end
 
   create_table "legacy_survey_responses", force: :cascade do |t|
@@ -92,5 +101,6 @@ ActiveRecord::Schema.define(version: 20161011030629) do
 
   add_foreign_key "domain_memberships", "cities"
   add_foreign_key "domain_memberships", "domains"
+  add_foreign_key "legacy_survey_response_statistics", "legacy_survey_responses"
   add_foreign_key "tasks", "cities"
 end
