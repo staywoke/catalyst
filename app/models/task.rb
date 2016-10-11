@@ -1,6 +1,11 @@
 class Task < ApplicationRecord
   belongs_to :city
 
+  acts_as_mappable(
+    lat_column_name: :latitude,
+    lng_column_name: :longitude,
+    :through => :city,
+  )
 
   before_save do |record|
     record.token = SecureRandom.uuid unless token.present?

@@ -73,6 +73,10 @@ GEM
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     ffi (1.9.14)
+    geokit (1.10.0)
+    geokit-rails (2.2.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -213,6 +217,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   factory_girl_rails
+  geokit
+  geokit-rails
   haml
   jbuilder (~> 2.5)
   jquery-rails

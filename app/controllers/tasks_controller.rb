@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tasks = Task.order('RANDOM()').limit(3)
+    @tasks = Task.closest_to(current_user)
   end
 
   def show
