@@ -7,5 +7,6 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find_by_token(params[:key])
+    @task.viewed_by!(current_user)
   end
 end

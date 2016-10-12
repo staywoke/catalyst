@@ -18,6 +18,13 @@ class Task < ApplicationRecord
       .limit(limit)
   end
 
+  def viewed_by!(user)
+    TaskView.create!(
+      task: self,
+      user: user,
+    )
+  end
+
   def project
     Projects::Base.find_by_key(project_key)
   end

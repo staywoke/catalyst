@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011230134) do
+ActiveRecord::Schema.define(version: 20161012000455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 20161011230134) do
     t.index ["domain_id"], name: "index_project_domains_on_domain_id", using: :btree
   end
 
+  create_table "task_views", force: :cascade do |t|
+    t.integer  "task_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_task_views_on_task_id", using: :btree
+    t.index ["user_id"], name: "index_task_views_on_user_id", using: :btree
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string   "project_key"
     t.integer  "city_id"
@@ -102,5 +111,7 @@ ActiveRecord::Schema.define(version: 20161011230134) do
   add_foreign_key "domain_memberships", "cities"
   add_foreign_key "domain_memberships", "domains"
   add_foreign_key "legacy_survey_response_statistics", "legacy_survey_responses"
+  add_foreign_key "task_views", "tasks"
+  add_foreign_key "task_views", "users"
   add_foreign_key "tasks", "cities"
 end
