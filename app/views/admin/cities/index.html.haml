@@ -14,6 +14,7 @@
         %th Longitude
         %th
         %th
+        %th
     %tbody
       - @cities.each do |city|
         %tr
@@ -21,6 +22,8 @@
           %td= city.state
           %td= city.latitude
           %td= city.longitude
+          %td
+            .btn.btn-sm.btn-default= link_to 'View', admin_city_path(city)
           %td
             .btn.btn-sm.btn-default= link_to 'Edit', edit_admin_city_path(city)
           %td

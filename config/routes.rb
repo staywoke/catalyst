@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'project/:key/edit', to: 'projects#edit', as: :edit_project
     put 'project/:key', to: 'projects#update', as: :project
 
-    resources 'cities', except: :show
+    resources 'cities'
     resources 'domains', except: :show
   end
 end

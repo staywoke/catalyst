@@ -5,6 +5,11 @@ class Admin::CitiesController < Admin::BaseController
     @cities = City.all
   end
 
+  def show
+    @city = City.find(params[:id])
+    @tasks = Task.where(city: @city)
+  end
+
   def new
     @city = City.new
   end

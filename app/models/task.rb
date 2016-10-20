@@ -49,6 +49,10 @@ class Task < ApplicationRecord
     project.new_response
   end
 
+  def responses
+    response_class.where(task: self).order(:id)
+  end
+
   def title
     project::NAME
   end

@@ -24,4 +24,8 @@ class User < ApplicationRecord
 
     self.legacy_survey_response_id = legacy_survey_response.id
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

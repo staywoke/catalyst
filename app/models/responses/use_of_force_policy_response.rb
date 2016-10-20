@@ -23,5 +23,9 @@ module Responses
         self.update_column(:correct, true)
       end
     end
+
+    def answer
+      url
+    end
   end
 end
