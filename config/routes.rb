@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'actions', to: 'tasks#index', as: :tasks
   get 'task/:token', to: 'tasks#show', as: :task
+  post 'task/:token', to: 'responses#create', as: :response
 
   namespace :admin do
     get 'projects', to: 'projects#index', as: :projects

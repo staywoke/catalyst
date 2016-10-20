@@ -8,5 +8,7 @@ class TasksController < ApplicationController
   def show
     @task = Task.find_by_token(params[:token])
     @task.viewed_by!(current_user)
+
+    @response = @task.new_response
   end
 end

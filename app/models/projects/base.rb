@@ -5,6 +5,14 @@ class Projects::Base
     subclasses.find { |klass| klass::KEY == key }
   end
 
+  def self.response_class
+    ('Responses::' + self.name.split('::').last + 'Response').constantize
+  end
+
+  def self.new_response
+    self.response_class.new
+  end
+
   def self.blurb
     "projects/#{self::KEY}/blurb"
   end

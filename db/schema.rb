@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012000455) do
+ActiveRecord::Schema.define(version: 20161020043327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 20161012000455) do
     t.index ["city_id"], name: "index_tasks_on_city_id", using: :btree
   end
 
+  create_table "use_of_force_policy_responses", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.boolean  "correct"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["task_id"], name: "index_use_of_force_policy_responses_on_task_id", using: :btree
+    t.index ["user_id"], name: "index_use_of_force_policy_responses_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -114,4 +125,6 @@ ActiveRecord::Schema.define(version: 20161012000455) do
   add_foreign_key "task_views", "tasks"
   add_foreign_key "task_views", "users"
   add_foreign_key "tasks", "cities"
+  add_foreign_key "use_of_force_policy_responses", "tasks"
+  add_foreign_key "use_of_force_policy_responses", "users"
 end

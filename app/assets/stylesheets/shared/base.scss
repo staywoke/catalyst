@@ -1,3 +1,5 @@
+@import "variables";
+
 body {
   padding: 70px 50px 50px 50px;
 }
@@ -13,6 +15,33 @@ h1 {
   border-bottom: 7px solid $black;
   margin-bottom: 40px;
   margin-top: 35px;
+
+  &.back {
+    position: relative;
+    padding-left: 25px;
+
+    &::after {
+      content: '❮';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      display: inline-block;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+
+  a {
+    color: $black;
+
+    &:hover {
+      text-decoration: none;
+      color: $black;
+    }
+  }
 }
 
 h2 {

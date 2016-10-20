@@ -29,6 +29,14 @@ class Task < ApplicationRecord
     Projects::Base.find_by_key(project_key)
   end
 
+  def response_class
+    project.response_class
+  end
+
+  def new_response
+    project.new_response
+  end
+
   def title
     project::NAME
   end
