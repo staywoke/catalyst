@@ -5,6 +5,18 @@ class Projects::Base
     subclasses.find { |klass| klass::KEY == key }
   end
 
+  def self.blurb
+    "projects/#{self::KEY}/blurb"
+  end
+
+  def self.description
+    "projects/#{self::KEY}/description"
+  end
+
+  def self.form
+    "projects/#{self::KEY}/form"
+  end
+
   def self.city_ids
     ::DomainMembership.
       where(domain: self.domains).

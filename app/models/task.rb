@@ -38,10 +38,14 @@ class Task < ApplicationRecord
   end
 
   def blurb
-    project::BLURB
+    project.blurb
   end
 
   def description
-    project::DESCRIPTION
+    project.description
+  end
+
+  def form
+    project.form
   end
 end
