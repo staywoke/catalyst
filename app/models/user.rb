@@ -4,21 +4,14 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-  before_validation do
-    if zip_code_changed?
-      location = Geokit::Geocoders::MultiGeocoder.geocode(zip_code)
-
-      self.latitude = location.latitude
-      self.longitude = location.longitude
-    end
-  end
-
   before_create do
     if legacy_survey_response_id.present?
       object = LegacySurveyResponse.find(legacy_survey_response_id)
       object.statistics.redeemed!
     end
   end
+
+  after_commit { AddGeocodingToUserJob.perform_later(id) }
 
   def inflate_from_legacy_survey_response(legacy_survey_response)
     parts = legacy_survey_response.name.split
