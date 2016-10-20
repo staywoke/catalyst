@@ -6,9 +6,7 @@ class AddGeocodingToCityJob < ApplicationJob
       "#{city.name}, #{city.state}"
     )
 
-    city.latitude = location.latitude
-    city.longitude = location.longitude
-
-    city.save!
+    city.update_column(:latitude, location.latitude)
+    city.update_column(:longitude, location.longitude)
   end
 end
