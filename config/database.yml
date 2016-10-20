@@ -80,6 +80,5 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['HEROKU_POSTGRESQL_JADE_URL'] %>
   database: catalyst_production
-  username: catalyst
-  password: <%= ENV['CATALYST_DATABASE_PASSWORD'] %>
