@@ -10,7 +10,7 @@ module Responses
     validates :url, presence: true
 
     after_save do |response|
-      CalculateCanonicalAnswerJob.perform_later(response.class.name, self.id)
+      ::CalculateCanonicalAnswerJob.perform_later(response.class.name, self.id)
     end
 
     def calculate_canonical_answer!
