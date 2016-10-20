@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20161020043327) do
     t.boolean  "correct"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "canonical_answer"
     t.index ["task_id"], name: "index_use_of_force_policy_responses_on_task_id", using: :btree
     t.index ["user_id"], name: "index_use_of_force_policy_responses_on_user_id", using: :btree
   end
