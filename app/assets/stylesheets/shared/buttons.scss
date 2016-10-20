@@ -47,12 +47,11 @@
   position: relative;
 
   &::after {
-    content: '\e092';
+    content: '❯';
     position: absolute;
-    right: 10px;
-    top: 15px;
+    right: 15px;
+    top: 16px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
     font-style: normal;
     font-weight: normal;
     line-height: 1;
