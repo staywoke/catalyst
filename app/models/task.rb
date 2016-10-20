@@ -12,10 +12,19 @@ class Task < ApplicationRecord
   end
 
   def self.closest_to(user, limit: 2)
-    Task.by_distance(origin: [user.latitude, user.longitude])
+    results = []
+
+    tasks = Task.by_distance(origin: [user.latitude, user.longitude])
       .references(:cities)
       .includes(:city)
-      .limit(limit)
+
+    tasks.each do |task|
+      next if task.response_class.where(task: task, user: user).count > 0
+      results << task
+      return results if results.count == limit
+    end
+
+    results
   end
 
   def viewed_by!(user)
