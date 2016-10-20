@@ -109,14 +109,10 @@ class AddInitialListOfCities < ActiveRecord::Migration[5.0]
 
       puts "processing '#{name}, #{state}'"
 
-      begin
-        City.create!(
-          name: name,
-          state: state,
-        )
-      rescue
-        binding.pry
-      end
+      City.create!(
+        name: name,
+        state: state,
+      )
     end
   end
 end
