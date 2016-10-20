@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create', as: :users
 
   get 'actions', to: 'tasks#index', as: :tasks
-  get 'task/:key', to: 'tasks#show', as: :task
+  get 'task/:token', to: 'tasks#show', as: :task
 
   namespace :admin do
     get 'projects', to: 'projects#index', as: :projects
