@@ -14,4 +14,4 @@
           %td= project::NAME
           %td= project::KEY
           %td
-            .btn.btn-default.btn-sm= link_to 'Edit', admin_edit_project_path(key: project::KEY)
+            = link_to 'Edit', admin_edit_project_path(key: project::KEY), class: 'btn btn-default btn-sm'

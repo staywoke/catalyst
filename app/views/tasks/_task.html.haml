@@ -4,8 +4,7 @@
       %h2= task.title
       %h3= task.subtitle
     .col-sm-4
-      .btn.btn-primary.btn-arrow.btn-block
-        = link_to 'I will do this', task_path(token: task.token)
+      = link_to 'I will do this', task_path(token: task.token), class: 'btn btn-primary btn-arrow btn-block'
 
   .row.description
     .col-sm-12

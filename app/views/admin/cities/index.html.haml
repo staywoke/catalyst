@@ -2,7 +2,7 @@
   %h1 Cities
 
 .col-sm-6.margin-bottom-4
-  .btn.btn-primary= link_to 'New City', new_admin_city_path
+  = link_to 'New City', new_admin_city_path, class: 'btn btn-primary'
 
 .col-xs-12
   %table.table.table-hover
@@ -23,8 +23,8 @@
           %td= city.latitude
           %td= city.longitude
           %td
-            .btn.btn-sm.btn-default= link_to 'View', admin_city_path(city)
+            = link_to 'View', admin_city_path(city), class: 'btn btn-sm btn-default'
           %td
-            .btn.btn-sm.btn-default= link_to 'Edit', edit_admin_city_path(city)
+            = link_to 'Edit', edit_admin_city_path(city), class: 'btn btn-sm btn-default'
           %td
-            .btn.btn-sm.btn-danger= link_to 'Delete', admin_city_path(city), method: :delete, data: {confirm: 'Are you sure?'}
+            = button_to 'Delete', admin_city_path(city), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger'
