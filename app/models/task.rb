@@ -74,6 +74,7 @@ class Task < ApplicationRecord
   end
 
   def enough_responses?
-    response_class.where(task: self).count >= project::MINIMUM_RESPONSES
+    count = response_class.where(task: self).where('correct IS NOT false').count
+    count >= project::MINIMUM_RESPONSES
   end
 end
