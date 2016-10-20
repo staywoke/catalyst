@@ -38,6 +38,7 @@ gem 'simple_form'
 gem 'geokit'
 gem 'geokit-rails'
 
+gem 'awesome_print'
 gem 'honeybadger'
 
 group :development, :test do
