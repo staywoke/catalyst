@@ -19,8 +19,11 @@ class Task < ApplicationRecord
       .includes(:city)
 
     tasks.each do |task|
-      next if task.response_class.where(task: task, user: user).count > 0
+      next if task.response_from?(user)
+      next if task.enough_responses?
+
       results << task
+
       return results if results.count == limit
     end
 
@@ -64,5 +67,13 @@ class Task < ApplicationRecord
 
   def form
     project.form
+  end
+
+  def response_from?(user)
+    response_class.where(task: self, user: user).count > 0
+  end
+
+  def enough_responses?
+    response_class.where(task: self).count >= project::MINIMUM_RESPONSES
   end
 end
