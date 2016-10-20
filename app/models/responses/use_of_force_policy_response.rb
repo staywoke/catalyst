@@ -17,6 +17,10 @@ module Responses
       self.update_attribute(
         :canonical_answer, Digest::MD5.hexdigest(open(self.url).read)
       )
+
+      if user.admin? && self.correct.nil?
+        self.update_attribute(:correct, true)
+      end
     end
   end
 end
