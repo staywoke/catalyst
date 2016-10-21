@@ -9,12 +9,14 @@
     %thead
       %tr
         %th Name
+        %th Cities
         %th
         %th
     %tbody
       - @domains.each do |domain|
         %tr
           %td= domain.name
+          %td= domain.cities.count
           %td
             = link_to 'Edit', edit_admin_domain_path(domain), class: 'btn btn-default btn-sm'
           %td
