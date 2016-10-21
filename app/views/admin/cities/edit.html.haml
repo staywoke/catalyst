@@ -3,6 +3,4 @@
 = simple_form_for(@city, url: admin_city_path(@city), method: :put) do |form|
   = form.input :name
   = form.input :state
-  = form.input :latitude
-  = form.input :longitude
   = form.button :submit, class: 'btn-primary'
