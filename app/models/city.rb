@@ -9,4 +9,8 @@ class City < ApplicationRecord
     lat_column_name: :latitude,
     lng_column_name: :longitude,
   )
+
+  def response_count
+    Responses::Base.response_count_for(self)
+  end
 end

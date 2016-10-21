@@ -19,6 +19,18 @@ module Responses
         return result if result
       end
     end
+
+    def self.response_count_for(city)
+      task_ids = Task.where(city: city).pluck(:id)
+
+      result = 0
+
+      subclasses.each do |klass|
+        result += klass.where(task_id: task_ids).count
+      end
+
+      result
+    end
   end
 end
 
