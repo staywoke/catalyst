@@ -13,4 +13,8 @@ class City < ApplicationRecord
   def response_count
     Responses::Base.response_count_for(self)
   end
+
+  def full_name
+    "#{name}, #{state}"
+  end
 end
