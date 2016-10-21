@@ -1,7 +1,6 @@
 @import "variables";
 
 nav.navbar-default {
-  height: 60px;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
 
   .navbar-brand {
@@ -10,6 +9,14 @@ nav.navbar-default {
     img {
       height: 18px;
     }
+  }
+
+  .navbar-header {
+    height: 60px;
+  }
+
+  .navbar-toggle {
+    margin-top: 13px;
   }
 
   .navbar-nav {
@@ -26,6 +33,10 @@ nav.navbar-default {
           color: $black;
           background-color: transparent;
           border-bottom: 3px solid $black;
+
+          @media ($small) {
+            border-bottom: none;
+          }
         }
 
         &:hover {
