@@ -17,7 +17,7 @@ class TasksController < ApplicationController
         else
           thanks += ' Here are a few more tasks we could use your help with.'
         end
-        flash[:notice] = thanks
+        flash.now[:notice] = thanks
       end
     end
   end

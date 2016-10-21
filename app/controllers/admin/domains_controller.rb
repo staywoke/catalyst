@@ -44,7 +44,7 @@ class Admin::DomainsController < Admin::BaseController
       flash[:notice] = 'Domain successfully deleted'
       redirect_to admin_domain_path
     else
-      flash[:alert] = 'There was an error destroying that domain'
+      flash.now[:alert] = 'There was an error destroying that domain'
     end
   end
 

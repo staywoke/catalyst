@@ -41,7 +41,7 @@ class Admin::CitiesController < Admin::BaseController
       flash[:notice] = 'City successfully deleted'
       redirect_to admin_cities_path
     else
-      flash[:alert] = 'There was an error destroying that city'
+      flash.now[:alert] = 'There was an error destroying that city'
     end
   end
 
