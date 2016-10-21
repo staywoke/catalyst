@@ -1,0 +1,20 @@
+.col-xs-12
+  %h1 Unreviewed Responses
+
+.col-xs-12
+  %table.table.table-hover
+    %thead
+      %tr
+        %th User
+        %th Project
+        %th City
+        %th Answer
+        %th
+    %tbody
+      - @responses.each do |response|
+        %tr
+          %td= response.user.full_name
+          %td= response.task.title
+          %td= response.task.city.full_name
+          %td= response.answer
+          %td= link_to 'Review', admin_response_path(token: response.token), class: 'btn btn-sm btn-primary'

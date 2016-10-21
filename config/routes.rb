@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     get 'projects/:key/edit', to: 'projects#edit', as: :edit_project
     put 'projects/:key', to: 'projects#update', as: :project
 
+    get 'responses', to: 'responses#index', as: :responses
+    get 'responses/:token', to: 'responses#show', as: :response
+    put 'responses/:token', to: 'responses#update'
+
     resources 'cities'
     resources 'domains', except: :show
+    resources 'users', only: 'index'
   end
 end

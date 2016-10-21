@@ -1,0 +1,24 @@
+.col-xs-12
+  %h1 Review Response
+
+.row
+  .col-sm-4.text-right.italic User
+  .col-sm-8= @response.user.full_name
+
+.row
+  .col-sm-4.text-right.italic Project
+  .col-sm-8= @response.task.title
+
+.row
+  .col-sm-4.text-right.italic City
+  .col-sm-8= @response.task.city.full_name
+
+.row
+  .col-sm-4.text-right.italic Answer
+  .col-sm-8= @response.answer
+
+.row.margin-top-4
+  .col-sm-4
+    = button_to 'Reject', admin_response_path(token: @response.token, reject: true), method: :put, class: 'btn btn-sm btn-danger btn-block'
+  .col-sm-8
+    = button_to 'Approve', admin_response_path(token: @response.token, approve: true), method: :put, class: 'btn btn-sm btn-primary btn-block'

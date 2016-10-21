@@ -1,3 +1,8 @@
 = simple_form_for @response, url: response_path(token: @task.token) do |form|
   = form.input :url, label: 'Enter URL:'
   = form.button :submit, 'Submit', class: 'btn-primary'
+
+:javascript
+  $(function() {
+    $('#responses_use_of_force_policy_response_url').focus();
+  });

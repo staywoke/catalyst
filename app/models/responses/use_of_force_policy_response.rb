@@ -13,7 +13,7 @@ module Responses
       )
 
       if user.admin? && self.correct.nil?
-        self.update_column(:correct, true)
+        self.approve!(propagate: true)
       end
     end
 

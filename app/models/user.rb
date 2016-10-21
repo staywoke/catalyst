@@ -28,4 +28,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def statistics
+    ResponseStatistics.where(user: self).first_or_create
+  end
 end

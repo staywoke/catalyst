@@ -13,11 +13,23 @@ module Responses
       ::CalculateCanonicalAnswerJob.perform_later(record.class.name, record.id)
     end
 
+    def self.unreviewed
+      result = []
+
+      subclasses.each do |klass|
+        result += klass.where('correct IS NULL')
+      end
+
+      result
+    end
+
     def self.find_by_token(token)
       subclasses.each do |klass|
         result = klass.where(token: token).first
         return result if result
       end
+
+      nil
     end
 
     def self.response_count_for(city)
@@ -30,6 +42,42 @@ module Responses
       end
 
       result
+    end
+
+    def self.reviewed_responses_for(user)
+      result = []
+
+      subclasses.each do |klass|
+        result += klass.where('correct IS NOT NULL').where(user: user)
+      end
+
+      result
+    end
+
+    def incorrect?
+      correct == false
+    end
+
+    def calculate_canonical_answer!
+      raise NotImplementedError
+    end
+
+    def answer
+      raise NotImplementedError
+    end
+
+    def approve!(propagate:)
+      update_column(:correct, true)
+      ::CalculateResponseStatisticsJob.perform_later(user.id)
+
+      ::PropagateResponseJob.perform_later(self.class.name, id) if propagate
+    end
+
+    def reject!(propagate:)
+      update_column(:correct, false)
+      ::CalculateResponseStatisticsJob.perform_later(user.id)
+
+      ::PropagateResponseJob.perform_later(self.class.name, id) if propagate
     end
   end
 end

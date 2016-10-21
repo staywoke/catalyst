@@ -22,5 +22,7 @@
               %li= link_to 'Cities', admin_cities_path
               %li= link_to 'Domains', admin_domains_path
               %li= link_to 'Projects', admin_projects_path
+              %li= link_to 'Resonses', admin_responses_path
+              %li= link_to 'Users', admin_users_path
         - if current_user
           %li= link_to 'Logout', destroy_user_session_path, method: :delete
