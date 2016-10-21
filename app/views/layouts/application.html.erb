@@ -16,8 +16,12 @@
   <body>
     <div class="container-fluid">
       <%= render partial: 'navbar' %>
-      <p id="notice"><%= notice %></p>
-      <p id="alert"><%= alert %></p>
+      <% if flash[:notice] %>
+        <div class="row" id="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="row" id="alert"><%= flash[:alert] %></div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

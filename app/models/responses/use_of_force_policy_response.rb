@@ -1,17 +1,10 @@
 module Responses
-  class UseOfForcePolicyResponse < ApplicationRecord
+  class UseOfForcePolicyResponse < Responses::Base
     ALLOWED_ATTRIBUTES = [
       :url,
     ]
 
-    belongs_to :task
-    belongs_to :user
-
     validates :url, presence: true
-
-    after_save do |response|
-      ::CalculateCanonicalAnswerJob.perform_later(response.class.name, self.id)
-    end
 
     def calculate_canonical_answer!
       self.update_column(

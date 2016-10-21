@@ -11,8 +11,8 @@ class ResponsesController < ApplicationController
     @response.task = @task
 
     if @response.save
-      flash[:notice] = 'Thank you!'
-      redirect_to tasks_path
+      @response.reload
+      redirect_to tasks_path(thanks: @response.token)
     else
       render 'tasks/show'
     end

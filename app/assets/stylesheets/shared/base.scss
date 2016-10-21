@@ -76,5 +76,12 @@ p {
 }
 
 #notice, #alert {
-  display: none;
+  text-align: center;
+  font-family: 'Proxima Nova Regular';
+  background-color: $gray;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.44px;
+  margin-top: 30px;
+  padding: 15px;
 }
