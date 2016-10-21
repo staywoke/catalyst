@@ -15,13 +15,13 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create', as: :users
 
   get 'actions', to: 'tasks#index', as: :tasks
-  get 'task/:token', to: 'tasks#show', as: :task
-  post 'task/:token', to: 'responses#create', as: :response
+  get 'actions/:token', to: 'tasks#show', as: :task
+  post 'actions/:token', to: 'responses#create', as: :response
 
   namespace :admin do
     get 'projects', to: 'projects#index', as: :projects
-    get 'project/:key/edit', to: 'projects#edit', as: :edit_project
-    put 'project/:key', to: 'projects#update', as: :project
+    get 'projects/:key/edit', to: 'projects#edit', as: :edit_project
+    put 'projects/:key', to: 'projects#update', as: :project
 
     resources 'cities'
     resources 'domains', except: :show
