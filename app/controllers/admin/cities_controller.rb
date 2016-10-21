@@ -2,7 +2,7 @@ class Admin::CitiesController < Admin::BaseController
   before_filter :set_city, only: [:edit, :update, :destroy]
 
   def index
-    @cities = City.all
+    @cities = City.order([:state, :name])
   end
 
   def show
