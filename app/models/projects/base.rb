@@ -60,4 +60,4 @@ class Projects::Base
   end
 end
 
-require_dependency "projects/use_of_force_policy"
+require_dependency 'projects/use_of_force_policy'
