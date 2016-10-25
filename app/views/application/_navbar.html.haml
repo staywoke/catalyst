@@ -10,7 +10,7 @@
         %img{alt: 'StayWoke', src: asset_path('logo.png')}
     #collapser.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        %li{class: active_if(tasks_path, root_path)}= link_to 'Actions', tasks_path
+        %li{class: active_if(tasks_path)}= link_to 'Actions', tasks_path
         - if current_user
           %li{class: active_if(account_path)}= link_to 'My Account', account_path
         - if current_user.try(:admin?)
@@ -26,3 +26,5 @@
               %li= link_to 'Users', admin_users_path
         - if current_user
           %li= link_to 'Logout', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Sign In', new_user_session_path
