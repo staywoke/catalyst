@@ -1,8 +1,14 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @tasks = Task.closest_to(current_user)
+    @tasks = if params[:location]
+               Task.closest_to(location: params[:location])
+              elsif current_user
+               Task.closest_to(user: current_user)
+             else
+               Task.random
+             end
 
     if token = params[:thanks].present?
       last_response = Responses::Base.find_by_token(params[:thanks])

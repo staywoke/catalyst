@@ -11,19 +11,47 @@ class Task < ApplicationRecord
     record.token = SecureRandom.uuid unless token.present?
   end
 
-  def self.closest_to(user, limit: 2)
+  def self.closest_to(user: nil, location: nil, limit: 2)
+    raise if user.nil? && location.nil?
+    raise if user.present? && location.present?
+
     results = []
 
-    tasks = Task.by_distance(origin: [user.latitude, user.longitude])
+    location = if user
+                 [user.latitude, user.longitude]
+               else
+                 response = Geokit::Geocoders::MultiGeocoder.geocode(location)
+                 [response.latitude, response.longitude]
+               end
+
+    tasks = Task.by_distance(origin: location)
       .references(:cities)
       .includes(:city)
 
     tasks.each do |task|
-      next if task.response_from?(user)
+      next if user && task.response_from?(user)
       next if task.enough_responses?
 
       results << task
 
+      return results if results.count == limit
+    end
+
+    results
+  rescue
+    self.random
+  end
+
+  def self.random(limit: 2)
+    results = []
+
+    tasks = Task.order('RANDOM()')
+      .references(:cities)
+      .includes(:city)
+
+    tasks.each do |task|
+      next if task.enough_responses?
+      results << task
       return results if results.count == limit
     end
 

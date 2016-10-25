@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'tasks#index'
+  root to: 'static#home'
 
   devise_for :users, controller: {sessions: 'users/sessions'}
 
