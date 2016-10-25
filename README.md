@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a web-based, volunteer engagement, crowd-sourcing platform for the non-profit We The Protesters. That's a lot of buzz words! Think of it as Amazon's Mechanical Turk, but for fulfilling the mission of Black Lives Matter.
+This project is a web-based, volunteer engagement, crowd-sourcing platform for the non-profit We The Protesters. That's a lot of buzz words! Think of it as Amazon's Mechanical Turk, but for fulfilling the mission of Black Lives Matter (how about a couple more buzz words?).
 
 Users can view a list of tasks that are relevant to their location, relevant to their skills, and relevant to pushing the movement forward.
 
