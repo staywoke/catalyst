@@ -2,9 +2,35 @@
 
 ## Overview
 
+This project is a web-based, volunteer engagement, crowd-sourcing platform for the non-profit We The Protesters. That's a lot of buzz words! Think of it as Amazon's Mechanical Turk, but for fulfilling the mission of Black Lives Matter.
+
+Users can view a list of tasks that are relevant to their location, relevant to their skills, and relevant to pushing the movement forward.
+
 ### Projects
+
+Projects are the heart of a question and response type. The first Project we had was called "Use of Force Policy". It's a project to collect the Use of Force policies from the 100 largest cities in America. Projects cannot be created by non-engineers. A class inside `app/models/projects` must be created by an engineer. A corresponding Response class must also be created in `app/models/responses`. Corresponding views ought to be created in the `views` directory as well. The base Project and Response classes take care of rigging things up fairly automagically.
+
 ### Cities
+
+Non-engineers do have control over City creation. If you're logged in as an Admin, you should be able to view existing cities, and create new ones.
+
 ### Domains
+
+Domains are critical. You cannot have user-facing tasks without a Domain. This is another model that can be managed by non-engineers. If you're logged in as an Admin, you should see "Domains" available in the navbar.
+
+Domains express the intersection of Projects and Cities. They answer the question, "For which cities do I want an answer to this Project?".
+
+Common domains, like the "100 Largest Cities by Population" should already exist. If the domain you're interested in already exists, it's just a matter of applying it to the appropriate Project. Note that a Project can have multiple domains.
+
+If the Domain you're interested in doesn't exist yet, go ahead an create it in admin. All you'll have to do is add the cities to that Domain that apply.
+
+### Tasks
+
+Tasks are managed entirely by the application. For all the cities in all the domains associated with a Project, a Task will be created automatically by the system.
+
+### Responses
+
+Every Response is associated with a Task and a User. Some Projects specificy that they require multiple answers per Task. Note that this "multiple answer" feature is the primary reason answers are stored as Responses and not directly on the Task.
 
 ## Tooling
 
@@ -37,8 +63,6 @@ Our testing tools include:
 
  - RSpec
  - FactoryGirl
-
-## Modeling
 
 ## Deployment
 
