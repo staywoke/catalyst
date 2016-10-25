@@ -16,18 +16,24 @@ class UsersController < ApplicationController
   def update
     old_password = edit_user_params[:old_password]
     new_password = edit_user_params[:new_password]
+    new_password_confirmation = edit_user_params[:new_password_confirmation]
 
     edit_user_params.delete(:old_password)
     edit_user_params.delete(:new_password)
+    edit_user_params.delete(:new_password_confirmation)
 
     @user.assign_attributes(edit_user_params)
 
     if @user.valid_password?(old_password)
-      @user.password = new_password if new_password.present?
+      if new_password.present?
+        @user.password = new_password
+        @user.password_confirmation = new_password_confirmation
+      end
       if @user.save && sign_in(@user, :bypass => true)
         flash[:notice] = 'Your account has been successfully updated.'
         redirect_to tasks_path
       else
+        @user.errors.add(:new_password, 'Must match confirmation')
         render :edit
       end
     else
@@ -49,6 +55,7 @@ class UsersController < ApplicationController
       :last_name,
       :old_password,
       :new_password,
+      :new_password_confirmation,
       :zip_code,
     )
   end
@@ -60,6 +67,7 @@ class UsersController < ApplicationController
       :last_name,
       :legacy_survey_response_id,
       :password,
+      :password_confirmation,
       :zip_code,
     )
   end

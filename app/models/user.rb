@@ -2,6 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
     :validatable
 
+  validates_confirmation_of :password, :message => "Passwords must match"
+
   validates :email, presence: true, uniqueness: true
 
   before_create do
