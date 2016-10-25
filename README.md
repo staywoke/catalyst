@@ -73,9 +73,3 @@ Please talk to a project administrator to learn more about deployments. Short st
 We're building a crowd-sourcing platform to effect meaningful change in our communities. Obviously we're doing it with open-source software. We need your help!
 
 If you'd like to contribute, please assign yourself to an Issue, create a branch, and then submit a pull request.
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
