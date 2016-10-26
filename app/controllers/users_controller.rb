@@ -47,9 +47,9 @@ class UsersController < ApplicationController
       :email,
       :first_name,
       :last_name,
-      :old_password,
+      :location,
       :new_password,
-      :zip_code,
+      :old_password,
     )
   end
 
@@ -59,8 +59,8 @@ class UsersController < ApplicationController
       :first_name,
       :last_name,
       :legacy_survey_response_id,
+      :location,
       :password,
-      :zip_code,
     )
   end
 end

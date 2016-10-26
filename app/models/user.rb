@@ -20,7 +20,7 @@ class User < ApplicationRecord
     self.last_name = parts[-1] if parts.count > 1
 
     self.email = legacy_survey_response.email
-    self.zip_code = legacy_survey_response.zip_code
+    self.location = legacy_survey_response.zip_code
 
     self.legacy_survey_response_id = legacy_survey_response.id
   end

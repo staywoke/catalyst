@@ -2,7 +2,7 @@ class AddGeocodingToUserJob < ApplicationJob
   def perform(id)
     user = User.find(id)
 
-    location = Geokit::Geocoders::MultiGeocoder.geocode(user.zip_code)
+    location = Geokit::Geocoders::MultiGeocoder.geocode(user.location)
 
     raise unless location.latitude.present?
     raise unless location.latitude.present?
