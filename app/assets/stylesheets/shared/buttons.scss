@@ -59,3 +59,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+.btn-dark {
+  color: white;
+  background-color: $black;
+
+  &:hover, &:active, &:focus {
+    color: white;
+  }
+}

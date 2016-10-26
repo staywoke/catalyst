@@ -1,22 +1,44 @@
 .static {
   &.home {
     .hero {
-      background-color: #f43b56;
+      background: image-url('hero.png') no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
       padding-top: 100px;
-      padding-bottom: 100px;
+      padding-bottom: 170px;
       text-align: center;
 
       h1 {
-        font-size: 50px;
-        padding-bottom: 0;
-        margin-bottom: 50px;
-        border-bottom: none;
+        font-family: 'Proxima Nova Bold';
+        font-size: 60px;
         text-transform: none;
+
+        margin: 0;
+        padding: 0;
+        margin-bottom: 30px;
+        border-bottom: none;
       }
 
       h2 {
-        font-size: 30px;
+        font-size: 24px;
+        font-family: 'Proxima Nova Bold';
+        line-height: 40px;
+        text-align: justify;
+
+        margin: 0;
+        padding: 0;
         margin-bottom: 75px;
+      }
+
+      input, button {
+        height: 48px;
+        width: 100%;
+      }
+
+      @media (max-width: 767px) {
+        button {
+          margin-top: 10px;
+        }
       }
     }
   }

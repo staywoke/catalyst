@@ -90,3 +90,14 @@ p {
 .block {
   display: block;
 }
+
+input, textarea {
+  background-color: white;
+  border: none;
+  padding: 11.5px;
+  font-size: 18px;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}

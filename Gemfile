@@ -36,6 +36,9 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 
+gem 'underscore-rails'
+gem 'underscore-string-rails'
+
 gem 'geokit'
 gem 'geokit-rails'
 

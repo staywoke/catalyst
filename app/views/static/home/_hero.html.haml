@@ -1,6 +1,29 @@
 .row.hero
-  %h1 We need your help.
-  %h2
-    We are pushing for local, state, and federal policies that protect people
-    from police violence and hold the police accountable. Take action now!
-  %input{type: "text"}
+  .container
+    %h1 We need your help.
+    %h2
+      We are pushing for local, state, and federal policies that protect people
+      from police violence and hold the police accountable. Take action now!
+    .col-md-8.col-md-offset-2
+      %form
+        .row
+          .col-sm-7.nopadding
+            %input{type: "text", placeholder: 'Enter your zip code or location'}
+          .col-sm-5.nopadding
+            %button.btn.btn-dark Get Started
+
+:javascript
+  $(function() {
+    $('.hero form').submit(function(event) {
+      event.preventDefault();
+
+      var url = '/actions'
+      var location = $('.hero input').val();
+
+      if (! _.str.isBlank(location)) {
+        url += '?' + $.param({location: location});
+      }
+
+      window.location.href = url;
+    });
+  });
