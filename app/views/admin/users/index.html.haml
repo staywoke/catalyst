@@ -1,22 +1,23 @@
-.col-xs-12
-  %h1 Users
+.container
+  .col-xs-12
+    %h1 Users
 
-.col-xs-12
-  %table.table.table-hover
-    %thead
-      %tr
-        %th Name
-        %th Zip Code
-        %th Sign In Count
-        %th Correct Answers
-        %th Incorrect Answers
-        %th Admin
-    %tbody
-      - @users.each do |user|
+  .col-xs-12
+    %table.table.table-hover
+      %thead
         %tr
-          %td= user.full_name
-          %td= user.zip_code
-          %td= user.sign_in_count
-          %td= user.statistics.correct
-          %td= user.statistics.incorrect
-          %td= user.admin?
+          %th Name
+          %th Location
+          %th Sign In Count
+          %th Correct Answers
+          %th Incorrect Answers
+          %th Admin
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.full_name
+            %td= user.location
+            %td= user.sign_in_count
+            %td= user.statistics.correct
+            %td= user.statistics.incorrect
+            %td= user.admin?

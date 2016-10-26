@@ -1,23 +1,24 @@
-.col-xs-12
-  %h1 Domains
+.container
+  .col-xs-12
+    %h1 Domains
 
-.col-sm-6.margin-bottom-4
-  = link_to 'New Domain', new_admin_domain_path, class: 'btn btn-primary'
+  .col-sm-6.margin-bottom-4
+    = link_to 'New Domain', new_admin_domain_path, class: 'btn btn-primary'
 
-.col-xs-12
-  %table.table.table-hover
-    %thead
-      %tr
-        %th Name
-        %th Cities
-        %th
-        %th
-    %tbody
-      - @domains.each do |domain|
+  .col-xs-12
+    %table.table.table-hover
+      %thead
         %tr
-          %td= domain.name
-          %td= domain.cities.count
-          %td
-            = link_to 'Edit', edit_admin_domain_path(domain), class: 'btn btn-default btn-sm'
-          %td
-            = button_to 'Delete', admin_domain_path(domain), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger'
+          %th Name
+          %th Cities
+          %th
+          %th
+      %tbody
+        - @domains.each do |domain|
+          %tr
+            %td= domain.name
+            %td= domain.cities.count
+            %td
+              = link_to 'Edit', edit_admin_domain_path(domain), class: 'btn btn-default btn-sm'
+            %td
+              = button_to 'Delete', admin_domain_path(domain), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger'

@@ -1,32 +1,33 @@
-.col-xs-12
-  %h1 Cities
+.container
+  .col-xs-12
+    %h1 Cities
 
-.col-sm-6.margin-bottom-4
-  = link_to 'New City', new_admin_city_path, class: 'btn btn-primary'
+  .col-sm-6.margin-bottom-4
+    = link_to 'New City', new_admin_city_path, class: 'btn btn-primary'
 
-.col-xs-12
-  %table.table.table-hover
-    %thead
-      %tr
-        %th Name
-        %th State
-        %th Responses
-        %th Latitude
-        %th Longitude
-        %th
-        %th
-        %th
-    %tbody
-      - @cities.each do |city|
+  .col-xs-12
+    %table.table.table-hover
+      %thead
         %tr
-          %td= city.name
-          %td= city.state
-          %td= city.response_count
-          %td= city.latitude
-          %td= city.longitude
-          %td
-            = link_to 'View', admin_city_path(city), class: 'btn btn-sm btn-default'
-          %td
-            = link_to 'Edit', edit_admin_city_path(city), class: 'btn btn-sm btn-default'
-          %td
-            = button_to 'Delete', admin_city_path(city), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger'
+          %th Name
+          %th State
+          %th Responses
+          %th Latitude
+          %th Longitude
+          %th
+          %th
+          %th
+      %tbody
+        - @cities.each do |city|
+          %tr
+            %td= city.name
+            %td= city.state
+            %td= city.response_count
+            %td= city.latitude
+            %td= city.longitude
+            %td
+              = link_to 'View', admin_city_path(city), class: 'btn btn-sm btn-default'
+            %td
+              = link_to 'Edit', edit_admin_city_path(city), class: 'btn btn-sm btn-default'
+            %td
+              = button_to 'Delete', admin_city_path(city), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-sm btn-danger'

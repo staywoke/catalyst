@@ -1,20 +1,21 @@
-.col-xs-12
-  %h1 #{@city.name}, #{@city.state}
-
-- @tasks.each do |task|
+.container
   .col-xs-12
-    %h3= task.title
+    %h1 #{@city.name}, #{@city.state}
 
-  .col-xs-12
-    %table.table.table-hover
-      %thead
-        %tr
-          %th User
-          %th Correct
-          %th Answer
-      %tbody
-        - task.responses.each do |response|
+  - @tasks.each do |task|
+    .col-xs-12
+      %h3= task.title
+
+    .col-xs-12
+      %table.table.table-hover
+        %thead
           %tr
-            %td= response.user.full_name
-            %td= response.correct
-            %td= response.answer
+            %th User
+            %th Correct
+            %th Answer
+        %tbody
+          - task.responses.each do |response|
+            %tr
+              %td= response.user.full_name
+              %td= response.correct
+              %td= response.answer

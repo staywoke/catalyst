@@ -1,7 +1,8 @@
-%h1 New Domain
+.container
+  %h1 New Domain
 
-= simple_form_for(@domain, url: admin_domains_path, method: :post) do |form|
-  = form.input :name
-  %h2 Cities
-  = form.collection_check_boxes :cities, City.order([:state, :name]), :id, :full_name, checked: @domain.cities.pluck(:id), item_wrapper_class: 'block'
-  = form.button :submit, class: 'btn-primary'
+  = simple_form_for(@domain, url: admin_domains_path, method: :post) do |form|
+    = form.input :name
+    %h2 Cities
+    = form.collection_check_boxes :cities, City.order([:state, :name]), :id, :full_name, checked: @domain.cities.pluck(:id), item_wrapper_class: 'block'
+    = form.button :submit, class: 'btn-primary'

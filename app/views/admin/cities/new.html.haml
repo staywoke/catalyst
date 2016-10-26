@@ -1,6 +1,7 @@
-%h1 New City
+.container
+  %h1 New City
 
-= simple_form_for(@city, url: admin_cities_path, method: :post) do |form|
-  = form.input :name
-  = form.input :state
-  = form.button :submit, class: 'btn-primary'
+  = simple_form_for(@city, url: admin_cities_path, method: :post) do |form|
+    = form.input :name
+    = form.input :state
+    = form.button :submit, class: 'btn-primary'

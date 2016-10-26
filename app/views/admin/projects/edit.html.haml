@@ -1,11 +1,12 @@
-%h1 Update Project
+.container
+  %h1 Update Project
 
-name: #{@project::NAME}
-<br />
-key: #{@project::KEY}
-
-= form_for :project, url: admin_project_path(key: @project::KEY), method: :put do |form|
-  %h2 Domains
-  = form.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids, item_wrapper_class: 'block'
+  name: #{@project::NAME}
   <br />
-  = form.submit 'Update Project', class: 'btn btn-primary'
+  key: #{@project::KEY}
+
+  = form_for :project, url: admin_project_path(key: @project::KEY), method: :put do |form|
+    %h2 Domains
+    = form.collection_check_boxes :domains, Domain.all, :id, :name, checked: @project.domain_ids, item_wrapper_class: 'block'
+    <br />
+    = form.submit 'Update Project', class: 'btn btn-primary'

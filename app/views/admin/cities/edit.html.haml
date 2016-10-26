@@ -1,6 +1,7 @@
-%h1 Update City
+.container
+  %h1 Update City
 
-= simple_form_for(@city, url: admin_city_path(@city), method: :put) do |form|
-  = form.input :name
-  = form.input :state
-  = form.button :submit, class: 'btn-primary'
+  = simple_form_for(@city, url: admin_city_path(@city), method: :put) do |form|
+    = form.input :name
+    = form.input :state
+    = form.button :submit, class: 'btn-primary'

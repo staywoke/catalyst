@@ -1,17 +1,18 @@
-.col-xs-12
-  %h1 Projects
+.container
+  .col-xs-12
+    %h1 Projects
 
-.col-xs-12
-  %table.table.table-hover
-    %thead
-      %tr
-        %th Name
-        %th Key
-        %th
-    %tbody
-      - @projects.each do |project|
+  .col-xs-12
+    %table.table.table-hover
+      %thead
         %tr
-          %td= project::NAME
-          %td= project::KEY
-          %td
-            = link_to 'Edit', admin_edit_project_path(key: project::KEY), class: 'btn btn-default btn-sm'
+          %th Name
+          %th Key
+          %th
+      %tbody
+        - @projects.each do |project|
+          %tr
+            %td= project::NAME
+            %td= project::KEY
+            %td
+              = link_to 'Edit', admin_edit_project_path(key: project::KEY), class: 'btn btn-default btn-sm'

@@ -1,12 +1,13 @@
-.col-xs-12
-  %h1 My Account
+.container
+  .col-xs-12
+    %h1 My Account
 
-.col-sm-6
-  = simple_form_for(@user, url: account_path, method: :put) do |form|
-    = form.input :first_name
-    = form.input :last_name
-    = form.input :email
-    = form.input :zip_code
-    = form.input :old_password
-    = form.input :new_password
-    = form.button :submit, 'Update', class: 'btn-primary margin-top-4'
+  .col-sm-6
+    = simple_form_for(@user, url: account_path, method: :put) do |form|
+      = form.input :first_name
+      = form.input :last_name
+      = form.input :email
+      = form.input :location
+      = form.input :old_password
+      = form.input :new_password
+      = form.button :submit, 'Update', class: 'btn-primary margin-top-4'

@@ -1,9 +1,10 @@
-.row
-  %h1.back
-    = link_to 'Actions', tasks_path
+.container
+  .row
+    %h1.back
+      = link_to 'Actions', tasks_path
 
-  %h2= @task.title
-  %h3.margin-bottom-2= @task.subtitle
+    %h2= @task.title
+    %h3.margin-bottom-2= @task.subtitle
 
-  = render partial: @task.description, locals: {task: @task}
-  = render partial: @task.form, locals: {task: @task}
+    = render partial: @task.description, locals: {task: @task}
+    = render partial: @task.form, locals: {task: @task}
