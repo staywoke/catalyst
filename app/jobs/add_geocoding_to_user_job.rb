@@ -1,4 +1,6 @@
-class AddGeocodingToUserJob < ApplicationJob
+class AddGeocodingToUserJob
+  include Sidekiq::Worker
+
   def perform(id)
     user = User.find(id)
 

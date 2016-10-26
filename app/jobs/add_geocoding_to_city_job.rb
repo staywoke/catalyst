@@ -1,4 +1,6 @@
-class AddGeocodingToCityJob < ApplicationJob
+class AddGeocodingToCityJob
+  include Sidekiq::Worker
+
   def perform(id)
     city = City.find(id)
 

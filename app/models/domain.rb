@@ -11,7 +11,7 @@ class Domain < ApplicationRecord
     membership.send("#{resource.class.name.downcase}=", resource)
     membership.save
 
-    CalibrateTasksJob.perform_later
+    CalibrateTasksJob.perform_async
   end
 
   def remove(resource)
@@ -23,12 +23,12 @@ class Domain < ApplicationRecord
 
     membership.destroy
 
-    CalibrateTasksJob.perform_later
+    CalibrateTasksJob.perform_async
   end
 
   def set(city_ids)
     set_cities(city_ids)
-    CalibrateTasksJob.perform_later
+    CalibrateTasksJob.perform_async
   end
 
   private

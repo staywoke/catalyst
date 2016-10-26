@@ -11,7 +11,7 @@ class User < ApplicationRecord
     end
   end
 
-  after_commit { AddGeocodingToUserJob.perform_later(id) }
+  after_commit { AddGeocodingToUserJob.perform_async(id) }
 
   def inflate_from_legacy_survey_response(legacy_survey_response)
     parts = legacy_survey_response.name.split

@@ -1,4 +1,6 @@
-class CalibrateTasksJob < ApplicationJob
+class CalibrateTasksJob
+  include Sidekiq::Worker
+
   def perform
     Projects::Base.subclasses.each { |project| calibrate_cities(project) }
   end

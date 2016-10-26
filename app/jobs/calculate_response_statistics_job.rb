@@ -1,4 +1,6 @@
-class CalculateResponseStatisticsJob < ApplicationJob
+class CalculateResponseStatisticsJob
+  include Sidekiq::Worker
+
   def perform(id)
     user = User.find(id)
 

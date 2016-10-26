@@ -2,8 +2,8 @@ class City < ApplicationRecord
   validates :name, :state, presence: true
   validates :state, inclusion: {in: Catalyst.states}
 
-  after_destroy { CalibrateTasksJob.perform_later }
-  after_commit { AddGeocodingToCityJob.perform_later(id) }
+  after_destroy { CalibrateTasksJob.perform_async }
+  after_commit { AddGeocodingToCityJob.perform_async(id) }
 
   acts_as_mappable(
     lat_column_name: :latitude,

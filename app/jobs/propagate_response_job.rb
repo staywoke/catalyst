@@ -1,4 +1,6 @@
-class PropagateResponseJob < ApplicationJob
+class PropagateResponseJob
+  include Sidekiq::Worker
+
   def perform(klass, id)
     response = klass.constantize.find(id)
 

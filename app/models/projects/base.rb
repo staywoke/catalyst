@@ -56,7 +56,7 @@ class Projects::Base
     end
 
     return if to_be_removed.empty? && to_be_added.empty?
-    ::CalibrateTasksJob.perform_later
+    ::CalibrateTasksJob.perform_async
   end
 end
 

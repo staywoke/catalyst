@@ -9,7 +9,7 @@ class CreateResponseStatistics < ActiveRecord::Migration[5.0]
     end
 
     User.pluck(:id).each do |id|
-      CalculateResponseStatisticsJob.perform_later(id)
+      CalculateResponseStatisticsJob.perform_async(id)
     end
   end
 end

@@ -10,7 +10,7 @@ module Responses
     end
 
     after_commit do |record|
-      ::CalculateCanonicalAnswerJob.perform_later(record.class.name, record.id)
+      ::CalculateCanonicalAnswerJob.perform_async(record.class.name, record.id)
     end
 
     def self.unreviewed
@@ -68,16 +68,16 @@ module Responses
 
     def approve!(propagate:)
       update_column(:correct, true)
-      ::CalculateResponseStatisticsJob.perform_later(user.id)
+      ::CalculateResponseStatisticsJob.perform_async(user.id)
 
-      ::PropagateResponseJob.perform_later(self.class.name, id) if propagate
+      ::PropagateResponseJob.perform_async(self.class.name, id) if propagate
     end
 
     def reject!(propagate:)
       update_column(:correct, false)
-      ::CalculateResponseStatisticsJob.perform_later(user.id)
+      ::CalculateResponseStatisticsJob.perform_async(user.id)
 
-      ::PropagateResponseJob.perform_later(self.class.name, id) if propagate
+      ::PropagateResponseJob.perform_async(self.class.name, id) if propagate
     end
   end
 end
