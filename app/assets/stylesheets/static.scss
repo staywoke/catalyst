@@ -44,12 +44,8 @@
       }
     }
 
-    .strategy {
+    .strategy, .signup {
       padding-bottom: 100px;
-
-      img {
-        width: 100%;
-      }
 
       p {
         font-size: 18px;
@@ -80,9 +76,36 @@
           }
 
           span {
-            background: white;
             padding: 0 15px;
           }
+        }
+      }
+    }
+
+    .strategy {
+      h2.background span {
+        background: white;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .signup {
+      h2.background span {
+        background: $light-gray;
+      }
+
+      input {
+        width: 100%;
+      }
+
+      form {
+        margin-top: 30px;
+
+        input, button {
+          margin-top: 10px;
         }
       }
     }

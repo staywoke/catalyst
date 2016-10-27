@@ -9,7 +9,11 @@ class UsersController < ApplicationController
       sign_in(:user, @user)
       redirect_to tasks_path
     else
-      render 'welcome/new'
+      if @user.legacy_survey_response.present?
+        render 'welcome/new'
+      else
+        render 'static/home'
+      end
     end
   end
 

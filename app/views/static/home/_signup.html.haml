@@ -1,0 +1,22 @@
+.row.bg-gray
+  .container.signup
+    .row
+      .col-xs-12.line
+        %h2.background
+          %span Sign Up
+
+    .row
+      .col-xs-12
+        %p.text-center
+          Sign up now and starting contributing to the cause immediately.
+
+    .row
+      = form_for(@user, url: account_path, method: :post) do |form|
+        .col-xs-12
+          = form.text_field :location, placeholder: 'Zip code or location'
+        .col-xs-12
+          = form.text_field :email, placeholder: 'Email'
+        .col-xs-12
+          = form.password_field :password, placeholder: 'Password'
+        .col-xs-12
+          = form.submit 'Sign Up', class: 'btn-primary btn-dark btn-block'
