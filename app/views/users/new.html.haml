@@ -1,13 +1,15 @@
 .container
-  .col-xs-12
-    %h1 Sign Up
+  .row
+    .col-xs-12
+      %h1 Sign Up
 
-  .col-sm-6
-    = simple_form_for(@user, url: users_path, method: :post) do |form|
-      = form.hidden_field :referrer, value: 'sign-up'
-      = form.input :first_name
-      = form.input :last_name
-      = form.input :email
-      = form.input :location, label: 'Zip Code or Location'
-      = form.input :password, required: true
-      = form.button :submit, 'Sign Up', class: 'btn-primary margin-top-4'
+  .row
+    .col-sm-6
+      = simple_form_for(@user, url: users_path, method: :post) do |form|
+        = form.hidden_field :referrer, value: 'sign-up'
+        = form.input :first_name
+        = form.input :last_name
+        = form.input :email
+        = form.input :location, label: 'Zip Code or Location'
+        = form.input :password, required: true
+        = form.button :submit, 'Sign Up', class: 'btn-primary margin-top-4'
