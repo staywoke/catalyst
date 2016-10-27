@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'account', to: 'users#edit', as: :account
   put 'account', to: 'users#update'
+  get 'users/new', to: 'users#new', as: :new_user
   post 'users', to: 'users#create', as: :users
 
   get 'actions', to: 'tasks#index', as: :tasks

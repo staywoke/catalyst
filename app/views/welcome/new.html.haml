@@ -1,6 +1,7 @@
 .container
   = simple_form_for(@user) do |form|
     = form.hidden_field :legacy_survey_response_id
+    = form.hidden_field :referrer, value: 'welcome'
     = form.input :first_name
     = form.input :last_name
     = form.input :email

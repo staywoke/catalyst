@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_filter :set_user, only: [:edit, :update]
 
+  def new
+    @user = User.new
+  end
+
   def create
     @user = User.new(new_user_params)
 
@@ -9,10 +13,13 @@ class UsersController < ApplicationController
       sign_in(:user, @user)
       redirect_to tasks_path
     else
-      if @user.legacy_survey_response.present?
+      case params[:user][:referrer]
+      when 'welcome'
         render 'welcome/new'
+      when 'homepage', 'sign-up'
+        render 'users/new'
       else
-        render 'static/home'
+        raise
       end
     end
   end

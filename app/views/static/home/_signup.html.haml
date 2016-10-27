@@ -12,6 +12,7 @@
 
     .row
       = form_for(@user, url: users_path, method: :post) do |form|
+        = form.hidden_field :referrer, value: 'homepage'
         .col-xs-12
           = form.text_field :location, placeholder: 'Zip code or location'
         .col-xs-12
