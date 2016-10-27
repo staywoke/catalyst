@@ -4,18 +4,25 @@ class CalculateResponseStatisticsJob
   def perform(id)
     user = User.find(id)
 
-    correct = 0
-    incorrect = 0
+    # TODO: make hash tables for correct and incorrect
+    # mapping task_ids to true/false values 
+    # At the end, map the "correct" and "incorrect"
+    # to the true / false counts
+    correct = Hash.new(0)
+    incorrect = Hash.new(0)
 
     Responses::Base.reviewed_responses_for(user).each do |response|
-      correct += 1 if response.correct?
-      incorrect += 1 if response.incorrect?
+      if response.correct?
+        correct[response.task_id] = 1
+      elsif response.incorrect?
+        incorrect[response.task_id] = 1
+      end
     end
 
     statistics = user.statistics
 
-    statistics.correct = correct
-    statistics.incorrect = incorrect
+    statistics.correct = correct.values.reduce(0, :+)
+    statistics.incorrect = incorrect.values.reduce(0, :+)
 
     statistics.save!
   end
