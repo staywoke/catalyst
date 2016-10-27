@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  belongs_to :legacy_survey_response, optional: true
+
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
     :validatable
 
@@ -11,7 +13,7 @@ class User < ApplicationRecord
     end
   end
 
-  after_commit { AddGeocodingToUserJob.perform_async(id) }
+  after_commit { AddGeocodingToUserJob.new.perform(id) }
 
   def inflate_from_legacy_survey_response(legacy_survey_response)
     parts = legacy_survey_response.name.split

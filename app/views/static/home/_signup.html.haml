@@ -11,7 +11,7 @@
           Sign up now and starting contributing to the cause immediately.
 
     .row
-      = form_for(@user, url: account_path, method: :post) do |form|
+      = form_for(@user, url: users_path, method: :post) do |form|
         .col-xs-12
           = form.text_field :location, placeholder: 'Zip code or location'
         .col-xs-12
@@ -19,4 +19,4 @@
         .col-xs-12
           = form.password_field :password, placeholder: 'Password'
         .col-xs-12
-          = form.submit 'Sign Up', class: 'btn-primary btn-dark btn-block'
+          = form.submit 'Sign Up', class: 'btn btn-dark btn-block'
