@@ -1,3 +1,5 @@
+@import "variables";
+
 .static {
   &.home {
     .hero {
@@ -38,6 +40,49 @@
       @media (max-width: 767px) {
         button {
           margin-top: 10px;
+        }
+      }
+    }
+
+    .strategy {
+      padding-bottom: 100px;
+
+      img {
+        width: 100%;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 30px;
+      }
+
+      h2 {
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 80px;
+        margin-bottom: 50px;
+
+        &.background {
+          position: relative;
+          z-index: 1;
+
+          &:before {
+            border-top: 7px solid $black;
+            content: "";
+            margin: 0 auto;
+            position: absolute;
+            top: 11px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: -1;
+          }
+
+          span {
+            background: white;
+            padding: 0 15px;
+          }
         }
       }
     }
