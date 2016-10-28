@@ -44,7 +44,6 @@ gem 'underscore-string-rails'
 gem 'geokit'
 gem 'geokit-rails'
 
-gem 'awesome_print'
 gem 'honeybadger'
 
 gem 'open_uri_redirections'
