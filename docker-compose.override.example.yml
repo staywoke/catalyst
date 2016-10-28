@@ -1,0 +1,17 @@
+version: '2'
+
+volumes:
+  gems: {}
+
+services:
+  app:
+    volumes:
+      # mount the local directory into the app container (so local changes to code are available to the running server without rebuilding the image)
+      - ./:/app
+      # mount a volume for the bundled gems within the container. This improves development sanity by persisting changes to gems from container to container, without having to bundle from scratch again any time you touch the Gemfile
+      - gems:/gems
+
+  worker:
+    volumes:
+      - ./:/app
+      - gems:/gems
