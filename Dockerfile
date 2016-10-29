@@ -28,8 +28,14 @@ COPY ./lib/ /app/lib
 COPY ./vendor/ /app/vendor
 COPY Rakefile /app/
 
-RUN rake --trace assets:precompile \
- && rm -rf tmp/* log/*
+# precompile assets -- the fakeing of env variables is a necessary evil until a better solution comes along
+RUN DATABASE_URL=postgresql://fake \
+    DEV_MODE=true \
+    EXTERNAL_URL=http://fake \
+    RAILS_ASSETS_PRECOMPILE=true \
+    SECRET_KEY_BASE=fake \
+    rake assets:precompile --trace \
+ && rm -rf tmp/*
 
 COPY . /app/
 

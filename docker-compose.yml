@@ -10,6 +10,7 @@ services:
       - docker/app.env
       - docker/db.env
     environment:
+      EXTERNAL_URL: "http://${HOST_ADDRESS}:${PORT}"
       # when running via docker-compose, instruct the app to connect to the redis service
       REDIS_URL: redis://redis:6379/0
 
@@ -25,7 +26,7 @@ services:
       - redis
       - db
     ports:
-      - 3000
+      - '${PORT}:3000'
     command:
       - puma
       - --config
