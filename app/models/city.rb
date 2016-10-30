@@ -1,6 +1,6 @@
 class City < ApplicationRecord
   validates :name, :state, presence: true
-  validates :state, inclusion: {in: Catalyst.states}
+  validates :state, inclusion: { in: Catalyst.states }
 
   after_destroy { CalibrateTasksJob.perform_async }
   after_commit { AddGeocodingToCityJob.perform_async(id) }

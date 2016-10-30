@@ -11,7 +11,7 @@ Pull requests will need:
  - Tests
  - A logical series of [well written commits](https://github.com/alphagov/styleguides/blob/master/git.md)
 
-## Development environment
+## Development Environment
 
 We're using Docker to assist in building reliable development environments (highly recommended, though it's not required). If you're using a Mac, you'll need a Docker VM and it is highly recommended that you install [Docker for Mac][docker-product-page] to serve this purpose. If you're using Windows, you may find the similar [Docker for Windows][docker-product-page] offering works well, but the author of this document does not have personal experience with it.
 
@@ -23,7 +23,7 @@ We're using Docker to assist in building reliable development environments (high
 - ruby (only for the `bin/setup` script -- the app runs in Docker)
     - the default installation on OSX should work fine
 
-### Getting Started procedure
+### Getting Started Procedure
 
 1. Fork <https://github.com/staywoke/catalyst> to your username.
 
@@ -54,9 +54,8 @@ We're using Docker to assist in building reliable development environments (high
 [docker-product-page]: https://www.docker.com/products/docker
 [docker-compose]: https://www.docker.com/products/docker-compose
 
-##
-## Running Tests
+### Running Tests
 
 ```sh
-docker-compose
+docker-compose run --rm app rake
 ```

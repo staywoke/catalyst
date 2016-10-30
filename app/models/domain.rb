@@ -9,7 +9,7 @@ class Domain < ApplicationRecord
 
     membership = domain_memberships.new
     membership.send("#{resource.class.name.downcase}=", resource)
-    membership.save
+    membership.save!
 
     CalibrateTasksJob.perform_async
   end
@@ -21,7 +21,7 @@ class Domain < ApplicationRecord
       resource.class.name.downcase => resource
     )
 
-    membership.destroy
+    membership.destroy_all
 
     CalibrateTasksJob.perform_async
   end
