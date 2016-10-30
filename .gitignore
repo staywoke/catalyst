@@ -17,3 +17,4 @@
 .byebug_history
 env.local.sh
 docker-compose.override.yml
+.ruby-version
