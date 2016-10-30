@@ -4,10 +4,60 @@ require 'yaml'
 require 'json'
 require 'open-uri'
 require 'openssl'
+require 'open3'
+
+DEPENDENCIES = [
+  {
+    name: 'docker',
+    min_version: '1.12.1',
+    version_command: %w[docker -v],
+  },
+  {
+    name: 'docker-compose',
+    min_version: '1.8.0',
+    version_command: %w[docker-compose -v],
+  },
+]
 
 def symlink_docker_compose_override
   return if File.exist?('docker-compose.override.yml')
   File.symlink('docker-compose.override.example.yml', 'docker-compose.override.yml')
+end
+
+def system!(*args)
+  system(*args) or exit($?.exitstatus)
+end
+
+def capture!(*args)
+  out, pinfo = Open3.capture2e(*args)
+  unless pinfo.success?
+    warn "Failed to execute #{args.inspect}. Output follows:\n#{out}"
+    fail MissingDependencyError, d[:name]
+  end
+  out
+end
+
+def assert_version_gte(expected, actual)
+  String(expected).split(/[.-]/).zip(String(actual).split(/[.-]/)).each do |(expected_part, actual_part)|
+    len = [expected_part, actual_part].map(&:length).max
+    if (expected_part.rjust(len) <=> actual_part.rjust(len)) > 0
+      fail "#{actual} !>= #{expected}"
+    end
+  end
+end
+
+def assert_dependencies
+  pass = true
+  DEPENDENCIES.each do |d|
+    begin
+      out = capture!(*d[:version_command])
+      assert_version_gte d[:min_version], d.fetch(:version_pattern, /\d+\.\d+\.\d+/).match(out)
+    rescue => ex
+      warn "Error verifying dependency #{d[:name]}: #{ex.inspect}"
+      pass = false
+    end
+  end
+  fail 'A required dependency is missing.' unless pass
 end
 
 def docker_compose_config
@@ -93,6 +143,7 @@ def open_app_in_browser
 end
 
 symlink_docker_compose_override
+assert_dependencies
 prepare_images
 prepare_database
 start_the_app
