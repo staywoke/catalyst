@@ -2,6 +2,10 @@
 
 .static {
   &.home {
+    input[type="text"] {
+      font-family: 'Proxima Nova Bold';
+    }
+
     .hero {
       background: image-url('hero.jpg') no-repeat;
       background-size: cover;
@@ -57,6 +61,8 @@
         text-align: center;
         margin-top: 80px;
         margin-bottom: 50px;
+        font-family: "Proxima Nova Extra Bold";
+        letter-spacing: 3px;
 
         &.background {
           position: relative;
