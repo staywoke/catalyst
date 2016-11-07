@@ -1,4 +1,4 @@
-.container
+.container.signin
   .row
     .col-xs-12
       %h1 Sign In
@@ -7,13 +7,14 @@
     .col-xs-12
       Or,
       = link_to 'create an account', new_user_path
+      <br><br>>
 
   .row
-    .col-sm-6
+    .col-form
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |form|
         = form.input :email, required: false, autofocus: true
         = form.input :password, required: false
         = form.input :remember_me, as: :boolean if devise_mapping.rememberable?
-        = form.button :submit, "Log in", class: 'btn-primary'
+        = form.button :submit, "Sign in", class: 'btn-primary'
 
       = render "devise/shared/links"

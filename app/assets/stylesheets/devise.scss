@@ -1,0 +1,49 @@
+@import "variables";
+
+.sessions {
+  &.new {
+    background: image-url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding-top: 100px;
+    padding-bottom: 170px;
+    text-align: center;
+
+    .signin {
+      background: #fff;
+      text-align: center;
+      width: 40%;
+      padding: 50px;
+
+
+      h1 {
+        border: none;
+        padding: 0px;
+      }
+
+      .col-form {
+        float: none;
+        margin: auto;
+        padding: 50px;
+        display: block;
+
+        .form-group {
+          text-align: left;
+          color: #bbb;
+
+          input {
+            background-color: #ccc;
+            border: none;
+            box-shadow: none;
+            border-radius: 0px;
+          }
+        }
+
+        .btn {
+          background-color: #000;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
