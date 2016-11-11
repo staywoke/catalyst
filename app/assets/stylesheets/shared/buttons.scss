@@ -49,16 +49,16 @@
   position: relative;
 
   &::after {
-    content: '❯';
+    content: "";
     position: absolute;
     right: 15px;
-    top: 18px;
-    display: inline-block;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    top: 16px;
+    width: 26px;
+    height: 19px;
+    display: block;
+    background: transparent asset-url('arrow.png') no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
   }
 }
 
