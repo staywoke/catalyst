@@ -54,6 +54,11 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  if config.running_in_docker
+    # allow web console from not-only-local IPs if running in Docker, where remote client IPs are never local
+    config.web_console.whitelisted_ips = '172.0.0.0/8'
+  end
+
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
