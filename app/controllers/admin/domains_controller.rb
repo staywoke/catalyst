@@ -1,5 +1,5 @@
 class Admin::DomainsController < Admin::BaseController
-  before_filter :set_domain, only: [:edit, :update, :destroy]
+  before_action :set_domain, only: [:edit, :update, :destroy]
 
   def index
     @domains = Domain.all

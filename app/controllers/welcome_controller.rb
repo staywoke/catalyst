@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_filter :load_legacy_survey_response, only: :new
+  before_action :load_legacy_survey_response, only: :new
 
   def new
     @user = User.new

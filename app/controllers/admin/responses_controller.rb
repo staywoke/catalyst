@@ -1,5 +1,5 @@
 class Admin::ResponsesController < Admin::BaseController
-  before_filter :set_response, only: [:show, :update]
+  before_action :set_response, only: [:show, :update]
 
   def index
     @responses = Responses::Base.unreviewed

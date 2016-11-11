@@ -1,5 +1,5 @@
 class Admin::ProjectsController < Admin::BaseController
-  before_filter :set_project, only: [:edit, :update]
+  before_action :set_project, only: [:edit, :update]
 
   def index
     @projects = Projects::Base.subclasses
