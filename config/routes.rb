@@ -1,7 +1,9 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root to: 'static#home'
 
-  devise_for :users, controller: {sessions: 'users/sessions'}
+  devise_for :users, controller: { sessions: 'users/sessions' }
 
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
@@ -31,5 +33,9 @@ Rails.application.routes.draw do
     resources 'cities'
     resources 'domains', except: :show
     resources 'users', only: 'index'
+
+    authenticate :user, -> (u) { u.admin } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
   end
 end
