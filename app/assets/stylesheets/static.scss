@@ -17,10 +17,9 @@
       }
 
       background: $red;
-      background: -moz-linear-gradient(left, $red 0%, #d7a900 100%);
-      background: -webkit-linear-gradient(left, $red 0%,#d7a900 100%);
-      background: linear-gradient(to right, $red 0%,#d7a900 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$red', endColorstr='#d7a900',GradientType=1 );
+      background: -moz-linear-gradient(45deg, $red 0%, #d7a900 100%);
+      background: -webkit-linear-gradient(45deg, $red 0%,#d7a900 100%);
+      background: linear-gradient(45deg, $red 0%,#d7a900 100%);
 
       h1 {
         font-family: 'Proxima Nova Bold';
@@ -42,7 +41,7 @@
 
       h2 {
         font-size: 20px;
-        font-family: 'Proxima Nova Bold';
+        font-family: 'Proxima Nova Semibold';
         line-height: 36px;
 
         margin: 0;
@@ -102,10 +101,6 @@
 
     .strategy, .signup {
       padding-bottom: 100px;
-
-      @media ($small) {
-        padding-bottom: 50px;
-      }
 
       p {
         font-size: 18px;
@@ -167,9 +162,17 @@
       img {
         width: 100%;
       }
+
+      @media ($small) {
+        padding-bottom: 50px;
+      }
     }
 
     .signup {
+      @media ($small) {
+        padding-bottom: 55px;
+      }
+
       h2.background span {
         background: $light-gray;
       }
@@ -186,7 +189,7 @@
         }
 
         .btn {
-          padding: 13px 5px 16px 5px;
+          padding: 14px 5px 15px 5px;
         }
 
         input, button {
