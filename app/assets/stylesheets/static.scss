@@ -11,6 +11,11 @@
 
       padding-top: 77px;
 
+      @media ($small) {
+        margin-top: -10px;
+        padding-top: 57px;
+      }
+
       background: $red;
       background: -moz-linear-gradient(left, $red 0%, #d7a900 100%);
       background: -webkit-linear-gradient(left, $red 0%,#d7a900 100%);
@@ -26,6 +31,14 @@
         padding: 0;
         margin-bottom: 19px;
         border-bottom: none;
+
+        @media ($small) {
+          font-size: 30px;
+          text-align: center;
+          margin-bottom: 15px;
+          margin-left: -5px;
+          margin-right: -5px;
+        }
       }
 
       h2 {
@@ -36,6 +49,12 @@
         margin: 0;
         padding: 0;
         margin-bottom: 76px;
+
+        @media ($small) {
+          font-size: 18px;
+          margin-bottom: 49px;
+          line-height: 27px;
+        }
       }
 
       input, button {
@@ -47,13 +66,26 @@
         margin-top: 26px;
         margin-bottom: 10px;
 
+        @media ($small) {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
         input {
           text-align: center;
+
+          @media ($small) {
+            font-size: 18px;
+          }
         }
       }
 
       .button {
         margin-bottom: 87px;
+
+        @media ($small) {
+          margin-bottom: 53px;
+        }
       }
     }
 
@@ -62,10 +94,18 @@
       background: image-url('women-protest.jpg') no-repeat;
       background-size: cover;
       background-position: 50% 50%;
+
+      @media ($small) {
+        height: 300px;
+      }
     }
 
     .strategy, .signup {
       padding-bottom: 100px;
+
+      @media ($small) {
+        padding-bottom: 50px;
+      }
 
       p {
         font-size: 18px;
@@ -79,6 +119,12 @@
         margin-bottom: 50px;
         font-family: "Proxima Nova Extra Bold";
         letter-spacing: 3px;
+
+        @media ($small) {
+          margin-top: 49px;
+          margin-bottom: 28px;
+          font-size: 20px;
+        }
 
         &.background {
           position: relative;
@@ -95,10 +141,19 @@
             bottom: 0;
             width: 100%;
             z-index: -1;
+
+            @media ($small) {
+              border-top: 4px solid $black;
+              top: 13px;
+            }
           }
 
           span {
             padding: 0 15px;
+
+            @media ($small) {
+              padding: 0 10px;
+            }
           }
         }
       }

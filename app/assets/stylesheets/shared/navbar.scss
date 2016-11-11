@@ -7,23 +7,54 @@ nav.navbar-default {
   .navbar-brand {
     padding: 14px 0 21px 30px;
 
+    @media ($small) {
+      float: none;
+      display: block;
+      width: 150px;
+      margin: auto;
+      padding: 11px 0 0 0;
+    }
+
     img {
       height: 30px;
+
+      @media ($small) {
+        height: 25px;
+      }
     }
   }
 
   .navbar-header {
     height: 60px;
+
+    @media ($small) {
+      height: 47px;
+    }
   }
 
   .navbar-toggle {
     border: 0;
-    margin-top: 13px;
+    margin-top: 16px;
+    float: left;
+    margin-left: 15px;
+    margin-right: 0;
+
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:focus, &:hover {
+      background-color: transparent;
+    }
 
     .icon-bar {
       background-color: $black;
-      height: 6px;
-      width: 37px;
+      height: 3px;
+      width: 19px;
+      border-radius: 0;
+
+      & + .icon-bar {
+        margin-top: 3px;
+      }
     }
   }
 

@@ -6,9 +6,19 @@
   padding-top: 73px;
   padding-bottom: 73px;
 
+  @media ($small) {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
   color: white;
   font-size: 13px;
   line-height: 21px;
+
+  @media ($small) {
+    line-height: 40px;
+    text-align: center;
+  }
 
   a {
     color: white;
@@ -27,6 +37,11 @@
 
   .sharing-container {
     font-size: 0;
+    text-align: right;
+
+    @media ($small) {
+      text-align: center;
+    }
 
     .sharing {
       height: 44px;
@@ -35,11 +50,33 @@
     }
   }
 
+  .right {
+    @media ($small) {
+      margin-top: 32px;
+    }
+  }
+
   .credits {
     padding-top: 14px;
+    text-align: right;
+
+    @media ($small) {
+      padding-top: 45px;
+      text-align: center;
+      line-height: 20px;
+    }
+
+    a {
+      text-transform: none;
+      font-family: 'Proxima Nova Regular';
+    }
   }
 
   .bold {
     margin-top: 10px;
+
+    @media ($small) {
+      margin-top: 42px;
+    }
   }
 }

@@ -15,17 +15,18 @@
       <br />
       = link_to 'Protester Progress', 'http://www.protesterprogress.org/', target: '_blank'
     .col-sm-4
-    .col-sm-4
+    .col-sm-4.right
       .row
-        .col-xs-6
+        .col-sm-6
           Share the love...
-        .col-xs-6.text-right.sharing-container
+        .col-sm-6.sharing-container
           = image_tag 'twitter.png', class: 'sharing'
           = image_tag 'facebook.png', class: 'sharing'
           = image_tag 'linkedin.png', class: 'sharing'
-      .row.text-right.credits
+      .row.credits
         .col-xs-12
-          Photo by Johnny Silvercloud
+          Photo by
+          = link_to 'Johnny Silvercloud', 'https://www.flickr.com/photos/johnnysilvercloud/22285333984/'
           <br />
           = image_tag 'cc.png', class: 'cc'
           Creative Commons
