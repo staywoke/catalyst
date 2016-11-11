@@ -13,4 +13,8 @@ form, .form-control {
     color: $black;
     border-radius: 0;
   }
+
+  abbr[title], abbr[data-original-title] {
+    border-bottom: none;
+  }
 }
