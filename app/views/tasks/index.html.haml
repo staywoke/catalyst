@@ -1,7 +1,7 @@
 .container
-  .row
+  .col-xs-12
     %h1 Actions
 
-  .row.tasks
+  .col-sm-12.tasks
     - @tasks.each do |task|
       = render partial: 'task', locals: {task: task}

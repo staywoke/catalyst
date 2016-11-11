@@ -6,13 +6,16 @@
       font-family: 'Proxima Nova Regular';
     }
 
+    #notice, #alert {
+      margin-top: 0;
+    }
+
     .hero {
       color: white;
 
       padding-top: 77px;
 
       @media ($small) {
-        margin-top: -10px;
         padding-top: 57px;
       }
 

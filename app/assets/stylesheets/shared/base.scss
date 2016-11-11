@@ -3,6 +3,10 @@
 body>.container-fluid {
   margin-top: 60px;
   font-family: 'Proxima Nova Regular';
+
+  @media ($small) {
+    margin-top: 49px;
+  }
 }
 
 h1 {
