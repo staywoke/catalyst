@@ -2,7 +2,7 @@ class Projects::Base
   MINIMUM_RESPONSES = 1
 
   def self.find_by_key(key)
-    subclasses.find { |klass| klass::KEY == key }
+    subclasses.find { |klass| klass::KEY == key.to_sym }
   end
 
   def self.response_class
