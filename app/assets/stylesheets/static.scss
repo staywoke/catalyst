@@ -100,8 +100,6 @@
     }
 
     .strategy, .signup {
-      padding-bottom: 100px;
-
       p {
         font-size: 18px;
         line-height: 30px;
@@ -155,6 +153,8 @@
     }
 
     .strategy {
+      padding-bottom: 90px;
+
       h2.background span {
         background: white;
       }
@@ -169,6 +169,8 @@
     }
 
     .signup {
+      padding-bottom: 100px;
+
       @media ($small) {
         padding-bottom: 55px;
       }
