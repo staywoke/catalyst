@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-xs.12
+      %h1 Forgot your password?
+
+  .row
+    .col-sm-6
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |form|
+        = form.input :email, required: true, autofocus: true
+        = form.button :submit, 'Send me reset password instructions', class: 'btn-primary'
+
+      = render 'devise/shared/links'
