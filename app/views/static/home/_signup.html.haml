@@ -8,16 +8,18 @@
     .row
       .col-xs-12
         %p.text-center
-          Sign up now and starting contributing to the cause immediately.
+          Sign up now and contribute to the cause.
 
     .row
       = form_for(@user, url: users_path, method: :post) do |form|
         = form.hidden_field :referrer, value: 'homepage'
-        .col-xs-12
-          = form.text_field :location, placeholder: 'Zip code or location'
-        .col-xs-12
-          = form.text_field :email, placeholder: 'Email'
-        .col-xs-12
-          = form.password_field :password, placeholder: 'Password'
-        .col-xs-12
+        .col-sm-10
+          .row
+            .col-sm-4.nopadding
+              = form.text_field :location, placeholder: 'Zip code or location'
+            .col-sm-4.nopadding
+              = form.text_field :email, placeholder: 'Email'
+            .col-sm-4.nopadding
+              = form.password_field :password, placeholder: 'Password'
+        .col-sm-2
           = form.submit 'Sign Up', class: 'btn btn-dark btn-block'

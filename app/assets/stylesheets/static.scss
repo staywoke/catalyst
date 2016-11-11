@@ -2,50 +2,66 @@
 
 .static {
   &.home {
-    input[type="text"] {
-      font-family: 'Proxima Nova Bold';
+    input[type="text"], input[type="password"] {
+      font-family: 'Proxima Nova Regular';
     }
 
     .hero {
-      background: image-url('hero.jpg') no-repeat;
-      background-size: cover;
-      background-position: 50% 50%;
-      padding-top: 100px;
-      padding-bottom: 170px;
-      text-align: center;
+      color: white;
+
+      padding-top: 77px;
+
+      background: $red;
+      background: -moz-linear-gradient(left, $red 0%, #d7a900 100%);
+      background: -webkit-linear-gradient(left, $red 0%,#d7a900 100%);
+      background: linear-gradient(to right, $red 0%,#d7a900 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$red', endColorstr='#d7a900',GradientType=1 );
 
       h1 {
         font-family: 'Proxima Nova Bold';
-        font-size: 60px;
+        font-size: 48px;
         text-transform: none;
 
         margin: 0;
         padding: 0;
-        margin-bottom: 30px;
+        margin-bottom: 19px;
         border-bottom: none;
       }
 
       h2 {
-        font-size: 24px;
+        font-size: 20px;
         font-family: 'Proxima Nova Bold';
-        line-height: 40px;
-        text-align: justify;
+        line-height: 36px;
 
         margin: 0;
         padding: 0;
-        margin-bottom: 75px;
+        margin-bottom: 76px;
       }
 
       input, button {
-        height: 48px;
+        height: 50px;
         width: 100%;
       }
 
-      @media (max-width: 767px) {
-        button {
-          margin-top: 10px;
+      .input {
+        margin-top: 26px;
+        margin-bottom: 10px;
+
+        input {
+          text-align: center;
         }
       }
+
+      .button {
+        margin-bottom: 87px;
+      }
+    }
+
+    .protest {
+      height: 550px;
+      background: image-url('women-protest.jpg') no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
     }
 
     .strategy, .signup {
@@ -110,8 +126,24 @@
       form {
         margin-top: 30px;
 
+        .btn {
+          padding: 13px 5px 16px 5px;
+        }
+
         input, button {
           margin-top: 10px;
+          height: 50px;
+        }
+
+        @media ($big) {
+          .nopadding {
+            padding: 0 0 0 10px !important;
+            margin: 0 !important;
+
+            &:first-child {
+              padding-left: 15px !important;
+            }
+          }
         }
       }
     }

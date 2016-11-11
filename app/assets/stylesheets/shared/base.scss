@@ -39,7 +39,6 @@ h1 {
     color: $black;
 
     &:hover {
-      text-decoration: none;
       color: $black;
     }
   }
@@ -93,6 +92,7 @@ p {
 
 input, textarea {
   background-color: white;
+  border-radius: 0;
   border: none;
   padding: 11.5px;
   font-size: 18px;

@@ -1,6 +1,6 @@
 @import "variables";
 
-form {
+form, .form-control {
   label {
     font-family: 'Proxima Nova Semibold';
     font-size: 16px;
@@ -11,5 +11,6 @@ form {
     font-family: 'Proxima Nova Regular';
     font-size: 16px;
     color: $black;
+    border-radius: 0;
   }
 }

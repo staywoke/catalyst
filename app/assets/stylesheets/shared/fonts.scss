@@ -1,3 +1,5 @@
+@import "variables";
+
 @font-face {
   font-family: 'Proxima Nova Black';
   src: url('/fonts/proxima_nova_black.woff2') format('woff2'),
@@ -84,4 +86,14 @@
 
 .bold {
   font-family: 'Proxima Nova Bold';
+}
+
+a {
+  color: $red;
+  font-family: 'Proxima Nova Semibold';
+  text-decoration: none;
+
+  &:hover {
+    color: $red;
+  }
 }
