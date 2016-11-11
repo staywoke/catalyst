@@ -22,10 +22,10 @@
           = image_tag 'linkedin.png', class: 'sharing'
       .row.credits
         .col-xs-12
-          Photo by
-          = link_to 'Johnny Silvercloud', 'https://www.flickr.com/photos/johnnysilvercloud/22285333984/'
-          <br />
-          = image_tag 'cc.png', class: 'cc'
-          Creative Commons
-          <br />
-          .bold &copy; 2016 We The Protesters
+          %div
+            Photo by
+            = link_to 'Johnny Silvercloud', 'https://www.flickr.com/photos/johnnysilvercloud/22285333984/'
+          %div
+            = image_tag 'cc.png', class: 'cc'
+            Creative Commons
+          .copyright &copy; 2016 We The Protesters
