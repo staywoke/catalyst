@@ -10,8 +10,8 @@ class TasksController < ApplicationController
                Task.random
              end
 
-    if token = params[:thanks].present?
-      last_response = Responses::Base.find_by_token(params[:thanks])
+    if (token = params[:thanks].presence)
+      last_response = Responses::Base.find_by_token(token)
       if last_response && last_response.created_at > 5.minutes.ago
         thanks = 'THANK YOU!'
         case @tasks.count

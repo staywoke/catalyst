@@ -107,7 +107,7 @@ end
 
 def prepare_images
   system 'docker-compose', 'build' or exit($?.exitstatus)
-  system 'docker-compose', 'pull' or exit($?.exitstatus)
+  system 'docker-compose', 'pull', '--ignore-pull-failures' or exit($?.exitstatus)
 end
 
 def wait_for_app_to_be_ready(time_to_wait=30)

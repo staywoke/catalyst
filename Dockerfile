@@ -22,11 +22,11 @@ RUN BUNDLE_IGNORE_MESSAGES=true bundle install --jobs $(getconf _NPROCESSORS_ONL
 ENV PATH="/app/bin:$PATH"
 
 COPY ./app/ /app/app
-COPY ./bin/ /app/bin
 COPY ./config/ /app/config
 COPY ./lib/ /app/lib
 COPY ./vendor/ /app/vendor
 COPY Rakefile /app/
+COPY ./bin/rake /app/bin/rake
 
 # precompile assets -- the fakeing of env variables is a necessary evil until a better solution comes along
 RUN DATABASE_URL=postgresql://fake \

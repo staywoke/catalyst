@@ -8,8 +8,8 @@ class AddGeocodingToCityJob
       "#{city.name}, #{city.state}"
     )
 
-    raise unless location.latitude.present?
-    raise unless location.latitude.present?
+    raise 'missing location latitude' unless location.latitude.present?
+    raise 'missing location longitude' unless location.longitude.present?
 
     city.update_column(:latitude, location.latitude)
     city.update_column(:longitude, location.longitude)
