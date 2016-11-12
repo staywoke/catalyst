@@ -1,8 +1,27 @@
 @import "variables";
 
 nav.navbar-default {
-  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
   background-color: white;
+  border-bottom: 0;
+
+  @media ($small) {
+    .navbar-collapse {
+      background-color: $black;
+      padding-bottom: 20px;
+
+      .navbar-nav li a, .navbar-nav .open .dropdown-menu li a,
+      .navbar-nav > .open > a:focus {
+        color: white;
+        padding-top: 20px;
+        font-family: 'Proxima Nova Regular';
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 
   .navbar-brand {
     padding: 14px 0 21px 30px;
